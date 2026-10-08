@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Iniciar sesión | Denuncia Garzón</title>
+
+
+<!-- =========================================
+    TAILWIND CSS
+========================================== -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<!-- =========================================
+    LUCIDE ICONS
+========================================== -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+
+<body
+class="m-0
+        min-h-screen
+        font-sans
+        bg-[#171A2F]
+        text-white
+        tracking-widest
+        antialiased
+        transition-colors
+        duration-200
+        ease-in-out"
+>
+
+
+<!-- =========================================
+    LOGIN
+========================================== -->
+
+<section
+    class="min-h-screen
+            flex
+            items-center
+            justify-center
+            px-4
+            py-10
+            relative
+            overflow-hidden"
+>
+
+
+    <!-- =========================================
+        CONTENEDOR PRINCIPAL
+    ========================================== -->
+
+    <div
+        class="relative
+                w-full
+                max-w-lg"
+    >
+
+
+        <!-- =========================================
+            CÍRCULO SUPERIOR IZQUIERDO
+        ========================================== -->
+
+        <div
+            class="absolute
+                    w-32
+                    h-32
+                    bg-[#0f3460]
+                    rounded-full
+                    top-0
+                    left-0
+                    -z-10
+                    -translate-x-[45%]
+                    -translate-y-[45%]"
+        ></div>
+
+
+        <!-- =========================================
+            TARJETA DEL LOGIN
+        ========================================== -->
+
+        <div
+            class="relative
+                    z-10
+                    w-full
+                    border
+                    border-white/15
+                    rounded-xl
+                    shadow-[0_0_40px_1px_rgba(0,0,0,0.2)]
+                    backdrop-blur-[20px]
+                    p-8
+                    sm:p-10"
+        >
+
+
+            <!-- =========================================
+                ILUSTRACIÓN
+            ========================================== -->
+
+            <img
+                src="assets/ImagenLogin.png"
+                alt="Ilustración de policía"
+                class=" w-30%
+                        sm:w-30%
+                        mb-15
+                        object-contain
+                        absolute
+                        -top-[13.4px]
+                        -right-[-20px]
+                        w-[26%]"
+            />
+
+
+            <!-- =========================================
+                TÍTULO
+            ========================================== -->
+
+            <h1
+                class="text-4xl
+                        -right-[-27px]
+                        sm:text-5xl
+                        font-extrabold
+                        tracking-tight
+                        text-white
+                        flex" >INICIAR
+                <span class="block text-blue-500">
+                    SESIÓN
+                </span>
+
+            </h1>
+
+            <!-- =========================================
+                FORMULARIO
+            ========================================== -->
+
+            <form
+                action="#"
+                method="POST"
+                class="relative
+                        z-10
+                        mt-10"
+            >
+
+
+                <!-- =====================================
+                    USUARIO
+                ====================================== -->
+
+                <div class="my-8">
+
+                    <label
+                        for="usuario"
+                        class="sr-only"
+                    >
+                        Usuario
+                    </label>
+
+                    <input
+                        id="usuario"
+                        type="text"
+                        name="usuario"
+                        placeholder="USUARIO"
+                        autocomplete="username"
+                        required
+                        class="block
+                                w-full
+                                p-3.5
+                                text-white
+                                bg-white/10
+                                border
+                                border-transparent
+                                rounded
+                                outline-none
+                                font-medium
+                                tracking-[0.8px]
+                                text-[15px]
+                                backdrop-blur-[15px]
+                                transition
+                                duration-200
+                                focus:border-white/20
+                                focus:shadow-xl"
+                    />
+
+                </div>
+
+
+                <!-- =====================================
+                    CONTRASEÑA
+                ====================================== -->
+
+                <div class="my-8">
+
+                    <label
+                        for="password"
+                        class="sr-only"
+                    >
+                        Contraseña
+                    </label>
+
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="CONTRASEÑA"
+                        autocomplete="current-password"
+                        required
+                        class="block
+                                w-full
+                                p-3.5
+                                text-white
+                                bg-white/10
+                                border
+                                border-transparent
+                                rounded
+                                outline-none
+                                font-medium
+                                tracking-[0.8px]
+                                text-[15px]
+                                backdrop-blur-[15px]
+                                transition
+                                duration-200
+                                focus:border-white/20
+                                focus:shadow-xl"
+                    />
+
+                </div>
+
+
+                <!-- =====================================
+                    BOTÓN INICIAR SESIÓN
+                ====================================== -->
+
+                <button
+                    type="submit"
+                    class="block
+                            w-full
+                            p-3.5
+                            mb-8
+                            bg-blue-600
+                            text-white
+                            rounded
+                            text-xl
+                            tracking-[2px]
+                            font-bold
+                            border-none
+                            cursor-pointer
+                            hover:scale-105
+                            duration-300"
+                >
+                    INICIAR SESIÓN
+                </button>
+
+            </form>
+
+
+            <!-- =========================================
+                REGISTRARSE
+            ========================================== -->
+
+            <div
+                class="my-3
+                        flex
+                        justify-center
+                        text-white
+                        opacity-60"
+            >
+
+                <a
+                    href="register.html"
+                    class="no-underline
+                            text-inherit
+                            hover:underline
+                            transition
+                            duration-300
+                            ease-in-out
+                            "
+                >
+                    REGISTRARSE
+                </a>
+
+            </div>
+
+
+            <!-- =========================================
+                RECUPERAR CONTRASEÑA
+            ========================================== -->
+
+            <div
+                class="my-4
+                        flex
+                        justify-center
+                        text-white
+                        opacity-60"
+            >
+
+                <a
+                    href="resetpassword.html"
+                    class="no-underline
+                            text-inherit
+                            transition
+                            duration-300
+                            hover:underline
+                            ease-in-out
+                            hover:opacity-100"
+                >
+                    ¿OLVIDASTE TU CONTRASEÑA?
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+            CÍRCULO INFERIOR DERECHO
+        ========================================== -->
+
+        <div
+            class="absolute
+                    w-32
+                    h-32
+                    bg-[#0f3460]
+                    rounded-full
+                    bottom-[-50px]
+                    right-[-50px]
+                    -z-10
+                    translate-x-[45%]
+                    translate-y-[10]"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+    LUCIDE
+========================================== -->
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>

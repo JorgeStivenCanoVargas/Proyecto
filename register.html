@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crear cuenta | Denuncia Garzón</title>
+
+<!-- =========================================================
+    TAILWIND CSS
+========================================================== -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- =========================================================
+    LUCIDE ICONS
+========================================================== -->
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+
+<body class="bg-[#171A2F]">
+
+<!-- =========================================================
+    REGISTRO
+========================================================== -->
+
+<section
+    class="min-h-screen
+            bg-[#171A2F]
+            flex
+            items-center
+            justify-center
+            px-4
+            py-10
+            relative
+            overflow-hidden"
+>
+
+    <!-- =====================================================
+        CÍRCULO DECORATIVO SUPERIOR
+    ====================================================== -->
+
+    <div
+        class="absolute
+                -top-20
+                -left-20
+                w-64
+                h-64
+                bg-[#123B6D]
+                rounded-full
+                opacity-80"
+    ></div>
+
+
+    <!-- =====================================================
+        CÍRCULO DECORATIVO INFERIOR
+    ====================================================== -->
+
+    <div
+        class="absolute
+                -bottom-24
+                -right-20
+                w-72
+                h-72
+                bg-[#123B6D]
+                rounded-full
+                opacity-80"
+    ></div>
+
+
+    <!-- =====================================================
+        TARJETA DEL REGISTRO
+    ====================================================== -->
+
+    <div
+        class="relative
+                z-10
+                w-full
+                max-w-2xl
+                bg-[#1E223A]/80
+                backdrop-blur-xl
+                border
+                border-[#343A59]
+                rounded-2xl
+                shadow-2xl
+                px-6
+                py-8
+                sm:px-10"
+    >
+
+
+        <!-- =================================================
+            TÍTULO + POLICÍA
+        ================================================== -->
+
+        <div class="relative mb-8">
+
+            <h1
+                class="text-4xl
+                        sm:text-5xl
+                        font-extrabold
+                        tracking-tight
+                        text-white
+                        flex
+                        justify-center"
+            >CREAR
+                <span class="block text-blue-500">
+                    CUENTA
+                </span>
+
+            </h1>
+
+
+            <!-- Policía -->
+
+            <img
+                src="assets/ImagenLogin.png"
+                alt="Policía"
+                class=" w-30%
+                        sm:w-30%
+                        mb-15
+                        object-contain
+                        absolute
+                        -top-[83px]
+                        -right-[10px]
+                        w-[26%]"
+            >
+
+        </div>
+
+
+        <!-- =================================================
+            FORMULARIO
+        ================================================== -->
+
+        <form class="space-y-4">
+
+
+            <!-- =================================================
+                NOMBRES / APELLIDOS
+            ================================================== -->
+
+            <div
+                class="grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        gap-4"
+            >
+
+                <!-- NOMBRES -->
+
+                <div>
+
+                    <label
+                        for="nombres"
+                        class="sr-only"
+                    >
+                        Nombres
+                    </label>
+
+                    <input
+                        id="nombres"
+                        type="text"
+                        name="nombres"
+                        placeholder="NOMBRES"
+                        autocomplete="given-name"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+
+                <!-- APELLIDOS -->
+
+                <div>
+
+                    <label
+                        for="apellidos"
+                        class="sr-only"
+                    >
+                        Apellidos
+                    </label>
+
+                    <input
+                        id="apellidos"
+                        type="text"
+                        name="apellidos"
+                        placeholder="APELLIDOS"
+                        autocomplete="family-name"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                DOCUMENTO
+            ================================================== -->
+
+            <div
+                class="grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        gap-4"
+            >
+
+                <!-- TIPO DE DOCUMENTO -->
+
+                <div>
+
+                    <label
+                        for="tipo_documento"
+                        class="sr-only"
+                    >
+                        Tipo de documento
+                    </label>
+
+                    <select
+                        id="tipo_documento"
+                        name="tipo_documento"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-[#A8AEC3]
+                                outline-none
+                                appearance-none
+                                cursor-pointer
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                        <option value="">
+                            TIPO DE DOCUMENTO
+                        </option>
+
+                        <option value="cc">
+                            Cédula de ciudadanía
+                        </option>
+
+                        <option value="ce">
+                            Cédula de extranjería
+                        </option>
+
+                        <option value="pasaporte">
+                            Pasaporte
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- NÚMERO DE DOCUMENTO -->
+
+                <div>
+
+                    <label
+                        for="numero_documento"
+                        class="sr-only"
+                    >
+                        Número de documento
+                    </label>
+
+                    <input
+                        id="numero_documento"
+                        type="text"
+                        name="numero_documento"
+                        placeholder="NÚMERO DE DOCUMENTO"
+                        inputmode="numeric"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                FECHA DE NACIMIENTO / CORREO
+            ================================================== -->
+
+            <div
+                class="grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        gap-4"
+            >
+
+                <!-- FECHA DE NACIMIENTO -->
+
+                <div>
+
+                    <label
+                        for="fecha_nacimiento"
+                        class="sr-only"
+                    >
+                        Fecha de nacimiento
+                    </label>
+
+                    <input
+                        id="fecha_nacimiento"
+                        type="date"
+                        name="fecha_nacimiento"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-[#A8AEC3]
+                                outline-none
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+
+                <!-- CORREO -->
+
+                <div>
+
+                    <label
+                        for="correo"
+                        class="sr-only"
+                    >
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        id="correo"
+                        type="email"
+                        name="correo"
+                        placeholder="CORREO ELECTRÓNICO"
+                        autocomplete="email"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                TELÉFONO / MUNICIPIO
+            ================================================== -->
+
+            <div
+                class="grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        gap-4"
+            >
+
+                <!-- TELÉFONO -->
+
+                <div>
+
+                    <label
+                        for="telefono"
+                        class="sr-only"
+                    >
+                        Teléfono
+                    </label>
+
+                    <input
+                        id="telefono"
+                        type="tel"
+                        name="telefono"
+                        placeholder="TELÉFONO"
+                        autocomplete="tel"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+
+                <!-- MUNICIPIO -->
+
+                <div>
+
+                    <label
+                        for="municipio"
+                        class="sr-only"
+                    >
+                        Municipio / ciudad
+                    </label>
+
+                    <select
+                        id="municipio"
+                        name="municipio"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-[#A8AEC3]
+                                outline-none
+                                appearance-none
+                                cursor-pointer
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                        <option value="">
+                            MUNICIPIO / CIUDAD
+                        </option>
+
+                        <option value="garzon">
+                            Garzón
+                        </option>
+
+                        <option value="neiva">
+                            Neiva
+                        </option>
+
+                        <option value="pitalito">
+                            Pitalito
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                DIRECCIÓN
+            ================================================== -->
+
+            <div>
+
+                <label
+                    for="direccion"
+                    class="sr-only"
+                >
+                    Dirección
+                </label>
+
+                <input
+                    id="direccion"
+                    type="text"
+                    name="direccion"
+                    placeholder="DIRECCIÓN"
+                    autocomplete="street-address"
+                    class="w-full
+                            h-14
+                            px-5
+                            rounded-xl
+                            bg-[#30354D]
+                            border
+                            border-[#454B67]
+                            text-white
+                            placeholder-[#A8AEC3]
+                            outline-none
+                            transition
+                            focus:border-blue-500
+                            focus:ring-2
+                            focus:ring-blue-500/20"
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                CONTRASEÑAS
+            ================================================== -->
+
+            <div
+                class="grid
+                        grid-cols-1
+                        sm:grid-cols-2
+                        gap-4"
+            >
+
+                <!-- CONTRASEÑA -->
+
+                <div>
+
+                    <label
+                        for="password"
+                        class="sr-only"
+                    >
+                        Contraseña
+                    </label>
+
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="CONTRASEÑA"
+                        autocomplete="new-password"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+
+                <!-- CONFIRMAR CONTRASEÑA -->
+
+                <div>
+
+                    <label
+                        for="confirmar_password"
+                        class="sr-only"
+                    >
+                        Confirmar contraseña
+                    </label>
+
+                    <input
+                        id="confirmar_password"
+                        type="password"
+                        name="confirmar_password"
+                        placeholder="CONFIRMAR CONTRASEÑA"
+                        autocomplete="new-password"
+                        class="w-full
+                                h-14
+                                px-5
+                                rounded-xl
+                                bg-[#30354D]
+                                border
+                                border-[#454B67]
+                                text-white
+                                placeholder-[#A8AEC3]
+                                outline-none
+                                transition
+                                focus:border-blue-500
+                                focus:ring-2
+                                focus:ring-blue-500/20"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                BOTÓN CREAR CUENTA
+            ================================================== -->
+
+            <button
+                type="submit"
+                class="w-full
+                        h-14
+                        mt-4
+                        rounded-xl
+                        bg-blue-600
+                        hover:bg-blue-500
+                        active:bg-blue-700
+                        text-white
+                        font-bold
+                        tracking-wide
+                        transition-all
+                        duration-200
+                        shadow-lg
+                        shadow-blue-900/30
+                        flex
+                        items-center
+                        justify-center
+                        hover:scale-105
+                        duration-300"
+            >
+
+                CREAR CUENTA
+
+            </button>
+
+
+            <!-- =================================================
+                VOLVER AL LOGIN
+            ================================================== -->
+
+            <div class="text-center pt-2">
+
+                <p class="text-[#A8AEC3] text-sm">
+
+                    ¿YA TIENES UNA CUENTA?
+
+                    <a
+                        href="login.html"
+                        class="text-blue-500
+                                hover:text-blue-400
+                                font-semibold
+                                transition"
+                    >
+                        INICIAR SESIÓN
+                    </a>
+
+                </p>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+    LUCIDE
+========================================================== -->
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+
+</html>
