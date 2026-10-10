@@ -1,851 +1,1222 @@
 <!doctype html>
-<html lang="es" class="scroll-smooth motion-reduce:scroll-auto selection:bg-primary/20 selection:text-slate-900">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8fafc">
-  <meta name="description" content="Plataforma demostrativa de denuncias virtuales: conoce los pasos, consulta información y encuentra orientación ciudadana de forma clara y segura.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Denuncias Virtuales | Atención ciudadana">
-  <meta property="og:description" content="Una forma clara y segura de conocer el proceso de denuncia virtual y recibir orientación ciudadana.">
-  <meta property="og:image" content="https://[DOMINIO]/assets/img/og-image.jpg">
-  <link rel="icon" href="[FAVICON]" type="image/x-icon">
-  <meta property="og:locale" content="es_CO">
-  <title>Denuncias Virtuales | Atención ciudadana</title>
-
-  <!-- Fuentes de la interfaz: titulares y texto de lectura. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS por CDN con la paleta, tipografías y animaciones del proyecto. -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2F5BFF',
-            violet: '#7C3AED',
-            cyan: '#00D4B4',
-            amber: '#FFB020',
-            danger: '#FF3B5C'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            heading: ['Plus Jakarta Sans', 'sans-serif']
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-9px)' }
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Denuncias Virtuales | Inicio</title>
+    <!-- Tailwind CSS por CDN con la paleta, tipografías y animaciones del proyecto. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2F5BFF",
+              violet: "#7C3AED",
+              cyan: "#00D4B4",
+              amber: "#FFB020",
+              danger: "#FF3B5C",
             },
-            'float-slow': {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-6px)' }
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              heading: ["Plus Jakarta Sans", "sans-serif"],
             },
-            'pulse-slow': {
-              '0%, 100%': { opacity: '0.38', transform: 'scale(1)' },
-              '50%': { opacity: '0.68', transform: 'scale(1.08)' }
-            }
           },
-          animation: {
-            float: 'float 5s ease-in-out infinite',
-            'float-slow': 'float-slow 6s ease-in-out infinite',
-            'pulse-slow': 'pulse-slow 9s ease-in-out infinite'
-          }
-        }
-      }
-    };
-  </script>
-  <!-- Lucide es la única librería de iconos de esta página. -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body id="top" class="bg-white font-sans text-slate-700 antialiased">
-  <!-- Acceso directo para navegación por teclado. -->
-  <a href="#contenido" class="fixed left-4 top-4 z-[100] -translate-y-20 rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white shadow-xl transition motion-reduce:transition-none focus:translate-y-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Saltar al contenido</a>
-
-  <!-- Navegación principal: menú completo en escritorio y desplegable en móvil. -->
-  <header data-navbar class="sticky top-0 z-50 border-b border-transparent bg-white/75 backdrop-blur-xl transition-all motion-reduce:transition-none duration-300">
-    <nav aria-label="Navegación principal" class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8 lg:px-10">
-      <a href="#inicio" class="group inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" aria-label="Denuncias Virtuales, ir al inicio">
-        <span class="grid h-11 w-11 place-items-center rounded-2xl bg-primary text-white shadow-lg shadow-primary/20 transition motion-reduce:transition-none group-hover:scale-105">
-          <i data-lucide="shield-check" class="h-6 w-6" aria-hidden="true"></i>
-        </span>
-        <span class="font-heading text-base font-extrabold leading-tight tracking-tight text-slate-950 sm:text-lg">Denuncias<br class="sm:hidden"> Virtuales</span>
-      </a>
-
-      <div class="hidden items-center gap-6 xl:flex">
-        <a href="#inicio" class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Inicio</a>
-        <a href="#como-funciona" class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Cómo funciona</a>
-        <a href="#tipos" class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Tipos de denuncia</a>
-        <a href="#noticias" class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Noticias</a>
-        <a href="#foro" class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Foro</a>
-        <a href="#preguntas" class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Preguntas</a>
-      </div>
-
-      <div class="hidden items-center gap-3 xl:flex">
-        <a href="login.html" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">
-          <i data-lucide="log-in" class="h-4 w-4" aria-hidden="true"></i> Iniciar sesión
+        },
+      };
+    </script>
+    <!-- Lucide. -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-white font-sans text-slate-700 antialiased" id="top">
+    <!-- Navegación principal: menú completo en escritorio y desplegable en móvil. -->
+    <header class="sticky top-0 z-50 border-b border-transparent bg-white" data-navbar="">
+      <nav aria-label="Navegación principal" class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8 lg:px-10">
+        <a aria-label="Denuncias Virtuales, ir al inicio" class="group inline-flex items-center gap-3 rounded-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#inicio">
+          <img alt="Denuncias Virtuales" class="w-40" src="assets/logo.png">
         </a>
-        <a href="#tipos" class="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-violet to-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30">
-          Hacer denuncia <i data-lucide="arrow-up-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i>
-        </a>
+        <div class="hidden items-center gap-6 xl:flex">
+          <a class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#inicio">
+            Inicio
+          </a>
+          <a class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#como-funciona">
+            Cómo funciona
+          </a>
+          <a class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#tipos">
+            Tipos de denuncia
+          </a>
+          <a class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#noticias">
+            Noticias
+          </a>
+          <a class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+            Foro
+          </a>
+          <a class="text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#preguntas">
+            Preguntas
+          </a>
+        </div>
+        <div class="hidden items-center gap-3 xl:flex">
+          <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="login.html">
+            <i aria-hidden="true" class="h-4 w-4" data-lucide="log-in"> </i>
+            Iniciar sesión
+          </a>
+          <a class="group inline-flex items-center gap-2 rounded-full bg-violet px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30" href="#tipos">
+            Hacer denuncia
+            <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5" data-lucide="arrow-up-right">
+            </i>
+          </a>
+        </div>
+        <button aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú de navegación" class="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-800 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary xl:hidden focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" data-menu-toggle="" type="button">
+          <i aria-hidden="true" class="h-5 w-5" data-lucide="menu" data-menu-open-icon="">
+          </i>
+          <i aria-hidden="true" class="hidden h-5 w-5" data-lucide="x" data-menu-close-icon="">
+          </i>
+        </button>
+      </nav>
+      <div aria-hidden="true" class="pointer-events-none max-h-0 overflow-hidden border-t border-transparent opacity-0 transition-all motion-reduce:transition-none duration-300 xl:hidden" data-mobile-menu="" id="menu-movil">
+        <div class="mx-auto grid max-w-7xl gap-1 px-5 pb-5 pt-2 sm:px-8">
+          <a class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#inicio">
+            Inicio
+          </a>
+          <a class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#como-funciona">
+            Cómo funciona
+          </a>
+          <a class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#tipos">
+            Tipos de denuncia
+          </a>
+          <a class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#noticias">
+            Noticias
+          </a>
+          <a class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+            Foro
+          </a>
+          <a class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#preguntas">
+            Preguntas frecuentes
+          </a>
+          <a class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 font-semibold text-slate-700 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="login.html">
+            <i aria-hidden="true" class="h-4 w-4" data-lucide="log-in"> </i>
+            Iniciar sesión
+          </a>
+          <a class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 font-semibold text-white transition motion-reduce:transition-none hover:bg-blue-700 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30" href="#tipos">
+            Hacer denuncia
+            <i aria-hidden="true" class="h-4 w-4" data-lucide="arrow-up-right">
+            </i>
+          </a>
+        </div>
       </div>
-
-      <button type="button" data-menu-toggle aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú de navegación" class="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-800 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary xl:hidden focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">
-        <i data-lucide="menu" data-menu-open-icon class="h-5 w-5" aria-hidden="true"></i>
-        <i data-lucide="x" data-menu-close-icon class="hidden h-5 w-5" aria-hidden="true"></i>
-      </button>
-    </nav>
-
-    <div id="menu-movil" data-mobile-menu class="pointer-events-none max-h-0 overflow-hidden border-t border-transparent opacity-0 transition-all motion-reduce:transition-none duration-300 xl:hidden" aria-hidden="true">
-      <div class="mx-auto grid max-w-7xl gap-1 px-5 pb-5 pt-2 sm:px-8">
-        <a href="#inicio" class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Inicio</a>
-        <a href="#como-funciona" class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Cómo funciona</a>
-        <a href="#tipos" class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Tipos de denuncia</a>
-        <a href="#noticias" class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Noticias</a>
-        <a href="#foro" class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Foro</a>
-        <a href="#preguntas" class="rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Preguntas frecuentes</a>
-        <a href="login.html" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 font-semibold text-slate-700 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20"><i data-lucide="log-in" class="h-4 w-4" aria-hidden="true"></i> Iniciar sesión</a>
-        <a href="#tipos" class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 font-semibold text-white transition motion-reduce:transition-none hover:bg-blue-700 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30">Hacer denuncia <i data-lucide="arrow-up-right" class="h-4 w-4" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </header>
-
-  <main id="contenido">
-    <!-- Hero: propuesta de valor, accesos rápidos e imagen principal reemplazable. -->
-    <section id="inicio" class="relative isolate overflow-hidden bg-slate-50">
-      <div class="pointer-events-none absolute -right-32 -top-24 -z-10 h-96 w-96 rounded-full bg-primary/15 blur-3xl motion-reduce:animate-none animate-pulse-slow" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute -bottom-48 left-1/3 -z-10 h-96 w-96 rounded-full bg-cyan/15 blur-3xl motion-reduce:animate-none animate-pulse-slow" aria-hidden="true"></div>
-      <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#94a3b8_0.7px,transparent_0.7px)] [background-size:24px_24px] opacity-[0.16]" aria-hidden="true"></div>
-
-      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 lg:px-10 lg:pb-28 lg:pt-24">
-        <div data-reveal class="max-w-2xl">
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-3.5 py-2 text-xs font-semibold text-primary shadow-sm sm:text-sm">
-            <span class="relative flex h-2.5 w-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-70 motion-reduce:animate-none"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan"></span></span>
-            Atención ciudadana, más cerca de ti
+    </header>
+    <main id="contenido">
+      <!-- Hero: propuesta de valor, accesos rápidos e imagen principal reemplazable. -->
+      <section class="relative isolate overflow-hidden bg-slate-50" id="inicio">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#94a3b8_0.7px,transparent_0.7px)] [background-size:24px_24px] opacity-[0.16]"></div>
+        <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-16 sm:px-8 sm:pb-24 sm:pt-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12 lg:px-10 lg:pb-28 lg:pt-24">
+          <div class="max-w-2xl" data-reveal="">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white/80 px-3.5 py-2 text-xs font-semibold text-primary shadow-sm sm:text-sm">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="absolute inline-flex rounded-full bg-cyan opacity-70">
+                </span>
+                <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan">
+                </span>
+              </span>
+              Atención ciudadana, más cerca de ti
+            </div>
+            <h1 class="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
+              Denunciar debe ser
+              <span class="bg-clip-text text-transparent bg-cyan">
+                claro y sencillo.
+              </span>
+            </h1>
+            <p class="mt-6 max-w-prose text-base leading-relaxed text-slate-600 sm:text-lg">
+              Encuentra orientación para reportar un hecho, reúne la información
+              necesaria y conoce cómo hacer seguimiento. Un espacio digital
+              pensado para acompañarte con respeto y seguridad.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a class="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 font-semibold text-slate-800 shadow-sm transition motion-reduce:transition-none hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                <i aria-hidden="true" class="h-5 w-5 text-primary" data-lucide="search-check">
+                </i>
+                Consultar estado
+              </a>
+            </div>
+            <ul aria-label="Beneficios de la plataforma" class="mt-8 flex flex-col gap-3 text-sm font-medium text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3">
+              <li class="inline-flex items-center gap-2">
+                <span class="grid h-6 w-6 place-items-center rounded-full bg-cyan/15 text-emerald-800">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="lock-keyhole">
+                  </i>
+                </span>
+                Confidencialidad
+              </li>
+              <li class="inline-flex items-center gap-2">
+                <span class="grid h-6 w-6 place-items-center rounded-full bg-primary/10 text-primary">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="clock-3">
+                  </i>
+                </span>
+                Disponible 24/7
+              </li>
+              <li class="inline-flex items-center gap-2">
+                <span class="grid h-6 w-6 place-items-center rounded-full bg-violet/10 text-violet">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="move-right">
+                  </i>
+                </span>
+                Sin filas ni desplazamientos
+              </li>
+            </ul>
           </div>
-          <h1 class="font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl xl:text-[4.25rem]">Denunciar debe ser <span class="bg-gradient-to-r from-primary via-violet to-cyan bg-clip-text text-transparent">claro y sencillo.</span></h1>
-          <p class="mt-6 max-w-prose text-base leading-relaxed text-slate-600 sm:text-lg">Encuentra orientación para reportar un hecho, reúne la información necesaria y conoce cómo hacer seguimiento. Un espacio digital pensado para acompañarte con respeto y seguridad.</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#consulta" class="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 font-semibold text-slate-800 shadow-sm transition motion-reduce:transition-none hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">
-              <i data-lucide="search-check" class="h-5 w-5 text-primary" aria-hidden="true"></i> Consultar estado
+          <div class="relative mx-auto w-full max-w-xl lg:ml-auto" data-reveal="">
+            <div class="relative rounded-[2rem] border border-white/80 bg-white/80 p-3 shadow-2xl shadow-slate-900/10 backdrop-blur-sm sm:p-4">
+              <!-- ESPACIO IMG-->
+              <div aria-label="Ilustración de un joven con un teléfono junto a un escudo con candado y señales de verificación." class="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border-2 border-slate-300 bg-slate-100" data-slot="hero-principal" role="img">
+                <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan/10"></div>
+                <div class="relative grid h-full place-content-center justify-items-center px-6 text-center">
+                  <span class="grid h-16 w-16 place-items-center rounded-2xl bg-white text-primary shadow-lg shadow-slate-900/5">
+                    <i aria-hidden="true" class="h-8 w-8" data-lucide="image">
+                    </i>
+                  </span>
+                </div>
+                <img alt="Ilustración de un joven con un teléfono junto a un escudo con candado y señales de verificación." class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700" data-media-fade="" decoding="async" fetchpriority="high" height="1086" loading="eager" src="assets/img/hero-principal.webp" width="1448">
+              </div>
+            </div>
+            <article class="absolute -left-2 top-6 flex max-w-[13rem] items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xl shadow-slate-900/10 motion-reduce:animate-none sm:-left-12 sm:top-12 sm:max-w-[15rem] sm:p-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-cyan/15 text-emerald-800">
+                <i aria-hidden="true" class="h-5 w-5" data-lucide="file-check-2">
+                </i>
+              </span>
+              <span>
+                <span class="block text-xs font-semibold text-slate-500">
+                  Vista ilustrativa
+                </span>
+                <span class="mt-0.5 block text-sm font-bold text-slate-900">
+                  Denuncia registrada
+                </span>
+              </span>
+            </article>
+            <article class="absolute -bottom-5 right-0 flex max-w-[13rem] items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xl shadow-slate-900/10 motion-reduce:animate-none sm:-right-8 sm:max-w-[14rem] sm:p-4">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                <i aria-hidden="true" class="h-5 w-5" data-lucide="shield"> </i>
+              </span>
+              <span>
+                <span class="block text-xs font-semibold text-slate-500">
+                  Protección prioritaria
+                </span>
+                <span class="mt-0.5 block text-sm font-bold text-slate-900">
+                  Datos protegidos
+                </span>
+              </span>
+            </article>
+            <div class="absolute -bottom-7 left-8 hidden items-center gap-2 rounded-full border border-white bg-white/90 px-4 py-2.5 text-xs font-semibold text-slate-600 shadow-lg sm:flex">
+              <i aria-hidden="true" class="h-4 w-4 text-primary" data-lucide="badge-check">
+              </i>
+              Un canal de orientación confiable
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Cifras de ejemplo: ilustran cómo puede presentarse el impacto del servicio. -->
+      <section aria-labelledby="estadisticas-titulo" class="border-y border-slate-200/80 bg-white">
+        <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10 lg:py-14">
+          <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div data-reveal="">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                Confianza que se construye
+              </p>
+              <h2 class="mt-2 font-heading text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl" id="estadisticas-titulo">
+                Atención pensada para las personas
+              </h2>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+            <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6" data-reveal="">
+              <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                <span data-counter="" data-suffix="+" data-target="18500">
+                  18.500+
+                </span>
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Denuncias atendidas
+              </p>
+            </article>
+            <article class="delay-100 rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6" data-reveal="">
+              <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                <span data-counter="" data-decimals="1" data-suffix=" h" data-target="2.4">
+                  2 - 4 horas
+                </span>
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Tiempo promedio de respuesta
+              </p>
+            </article>
+            <article class="delay-200 rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6" data-reveal="">
+              <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                <span data-counter="" data-suffix="/7" data-target="24">
+                  24/7
+                </span>
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Disponibilidad del canal
+              </p>
+            </article>
+            <article class="delay-300 rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6" data-reveal="">
+              <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                <span data-counter="" data-suffix="%" data-target="96">
+                  96%
+                </span>
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Satisfacción ciudadana
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Guía rápida: cuatro momentos para orientar el proceso. -->
+      <section aria-labelledby="funciona-titulo" class="bg-white py-20 sm:py-24" id="como-funciona">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="mx-auto max-w-2xl text-center" data-reveal="">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Un proceso fácil de entender
+            </p>
+            <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl" id="funciona-titulo">
+              ¿Cómo funciona?
+            </h2>
+            <p class="mx-auto mt-4 max-w-prose leading-relaxed text-slate-600">
+              Cada paso te ayuda a organizar la información para que puedas
+              avanzar con más claridad y mantener a la mano tu seguimiento.
+            </p>
+          </div>
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5" data-reveal="">
+              <div class="flex items-center justify-between">
+                <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary transition motion-reduce:transition-none group-hover:scale-105">
+                  <i aria-hidden="true" class="h-6 w-6" data-lucide="list-filter">
+                  </i>
+                </span>
+                <span class="font-heading text-4xl font-extrabold text-slate-100">
+                  01
+                </span>
+              </div>
+              <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">
+                Elige el tipo
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Identifica la categoría que mejor describe lo ocurrido y revisa
+                su orientación.
+              </p>
+            </article>
+            <article class="delay-100 group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/25 hover:shadow-xl hover:shadow-violet/5" data-reveal="">
+              <div class="flex items-center justify-between">
+                <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105">
+                  <i aria-hidden="true" class="h-6 w-6" data-lucide="notebook-pen">
+                  </i>
+                </span>
+                <span class="font-heading text-4xl font-extrabold text-slate-100">
+                  02
+                </span>
+              </div>
+              <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">
+                Describe lo ocurrido
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Organiza fechas, lugares y detalles importantes con tus propias
+                palabras.
+              </p>
+            </article>
+            <article class="delay-200 group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-cyan/40 hover:shadow-xl hover:shadow-cyan/10" data-reveal="">
+              <div class="flex items-center justify-between">
+                <span class="grid h-12 w-12 place-items-center rounded-2xl bg-cyan/15 text-emerald-800 transition motion-reduce:transition-none group-hover:scale-105">
+                  <i aria-hidden="true" class="h-6 w-6" data-lucide="paperclip">
+                  </i>
+                </span>
+                <span class="font-heading text-4xl font-extrabold text-slate-100">
+                  03
+                </span>
+              </div>
+              <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">
+                Adjunta evidencia
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Si cuentas con ella, reúne archivos o referencias que ayuden a
+                contextualizar el caso.
+              </p>
+            </article>
+            <article class="delay-300 group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-amber/50 hover:shadow-xl hover:shadow-amber/10" data-reveal="">
+              <div class="flex items-center justify-between">
+                <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber/20 text-amber-900 transition motion-reduce:transition-none group-hover:scale-105">
+                  <i aria-hidden="true" class="h-6 w-6" data-lucide="scan-search">
+                  </i>
+                </span>
+                <span class="font-heading text-4xl font-extrabold text-slate-100">
+                  04
+                </span>
+              </div>
+              <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">
+                Recibe seguimiento
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Conserva tu código de seguimiento para consultar las novedades
+                cuando estén disponibles.
+              </p>
+            </article>
+          </div>
+          <div class="mt-8 flex justify-center">
+            <a class="group inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold text-primary transition motion-reduce:transition-none hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#tipos">
+              Explorar tipos de denuncia
+              <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" data-lucide="arrow-right">
+              </i>
             </a>
           </div>
-          <ul class="mt-8 flex flex-col gap-3 text-sm font-medium text-slate-600 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-3" aria-label="Beneficios de la plataforma">
-            <li class="inline-flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full bg-cyan/15 text-emerald-800"><i data-lucide="lock-keyhole" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Confidencialidad</li>
-            <li class="inline-flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full bg-primary/10 text-primary"><i data-lucide="clock-3" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Disponible 24/7</li>
-            <li class="inline-flex items-center gap-2"><span class="grid h-6 w-6 place-items-center rounded-full bg-violet/10 text-violet"><i data-lucide="move-right" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Sin filas ni desplazamientos</li>
-          </ul>
-          <p class="mt-5 text-xs leading-relaxed text-slate-500">Esta página es una maqueta visual. No recibe ni transmite denuncias o datos personales.</p>
         </div>
-
-        <div data-reveal class="relative mx-auto w-full max-w-xl lg:ml-auto">
-          <div class="absolute -left-5 top-12 h-24 w-24 rounded-3xl bg-violet/10 blur-xl sm:-left-8 sm:h-32 sm:w-32" aria-hidden="true"></div>
-          <div class="absolute -right-4 bottom-10 h-32 w-32 rounded-full bg-cyan/20 blur-2xl sm:-right-10 sm:h-48 sm:w-48" aria-hidden="true"></div>
-          <div class="relative rounded-[2rem] border border-white/80 bg-white/80 p-3 shadow-2xl shadow-slate-900/10 backdrop-blur-sm sm:p-4">
-            <!-- ESPACIO-IMG: hero-principal | 4:3 | 1200x900 -->
-            <div data-slot="hero-principal" role="img" aria-label="Ilustración de un joven con un teléfono junto a un escudo con candado y señales de verificación." class="group relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border-2 border-dashed border-slate-300 bg-slate-100">
-              <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan/10" aria-hidden="true"></div>
+      </section>
+      <!-- Categorías de denuncia: accesos informativos con acentos de color diferenciados. -->
+      <section aria-labelledby="tipos-titulo" class="bg-slate-50 py-20 sm:py-24" id="tipos">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between" data-reveal="">
+            <div class="max-w-2xl">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                Encuentra orientación
+              </p>
+              <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl" id="tipos-titulo">
+                ¿Qué necesitas denunciar?
+              </h2>
+              <p class="mt-4 max-w-prose leading-relaxed text-slate-600">
+                Selecciona un tema para ver la información que suele ser útil
+                antes de iniciar un reporte.
+              </p>
+            </div>
+            <span class="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-medium text-slate-600">
+              <i aria-hidden="true" class="h-4 w-4 text-primary" data-lucide="info">
+              </i>
+              Orientación demostrativa
+            </span>
+          </div>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="package-open">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Hurto
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Reporte la sustracción de bienes y prepara una descripción de lo
+                ocurrido.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                Denunciar
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="delay-100 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/30 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="phone-call">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Extorsión
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Conserva mensajes y datos de contacto; evita responder si te
+                sientes en riesgo.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                Denunciar
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="delay-200 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/30 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="house-heart">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Violencia intrafamiliar
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Busca orientación sobre rutas de apoyo y opciones para relatar
+                el hecho.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#emergencia">
+                Ver orientación
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="delay-300 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-amber/40 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber/20 text-amber-900 transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="badge-dollar-sign">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Estafa o fraude virtual
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Organiza comprobantes, perfiles, enlaces y conversaciones
+                relacionadas.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                Denunciar
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-cyan/40 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-cyan/15 text-emerald-800 transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="messages-square">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Ciberacoso
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Guarda capturas y direcciones de los perfiles o canales donde
+                ocurrió.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                Denunciar
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="delay-100 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-slate-700 transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="construction">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Daño a bienes
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Describe los daños observados, el lugar y el momento aproximado.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                Denunciar
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="delay-200 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/30 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="user-round-search">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Persona desaparecida
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Ten a mano una descripción reciente y la información de contacto
+                disponible.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#emergencia">
+                Ver orientación
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+            <article class="delay-300 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-slate-900 text-white transition motion-reduce:transition-none group-hover:scale-105">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="scale"> </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">
+                Otros delitos
+              </h3>
+              <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">
+                Si no encuentras una categoría exacta, consulta las opciones de
+                orientación.
+              </p>
+              <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#consulta">
+                Ver opciones
+                <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                </i>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Seguridad y privacidad en bloque oscuro para dar contraste y ritmo visual. -->
+      <section aria-labelledby="seguridad-titulo" class="relative overflow-hidden bg-slate-950 py-20 text-white sm:py-24">
+        <div aria-hidden="true" class="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-primary/20 blur-3xl"></div>
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="max-w-2xl" data-reveal="">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan">
+              Tu tranquilidad importa
+            </p>
+            <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl" id="seguridad-titulo">
+              La confianza también es parte del proceso.
+            </h2>
+            <p class="mt-4 max-w-prose leading-relaxed text-slate-300">
+              La información sobre protección debe ser clara desde el primer
+              momento. Estos principios representan el estándar que una
+              plataforma institucional debe explicar.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09]" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/20 text-blue-200">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="eye-off">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold">
+                Confidencialidad
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                Acceso a la información limitado al personal autorizado, según
+                las políticas aplicables.
+              </p>
+            </article>
+            <article class="delay-100 rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09]" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-cyan/15 text-cyan">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="lock-keyhole">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold">
+                Cifrado de datos
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                La protección técnica debe acompañar los datos durante su
+                transmisión y almacenamiento.
+              </p>
+            </article>
+            <article class="delay-200 rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09]" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/20 text-violet-200">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="user-round-x">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold">
+                Anonimato opcional
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                La disponibilidad depende del tipo de hecho y de la normativa
+                vigente; revisa las condiciones.
+              </p>
+            </article>
+            <article class="delay-300 rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09]" data-reveal="">
+              <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber/15 text-amber">
+                <i aria-hidden="true" class="h-6 w-6" data-lucide="landmark">
+                </i>
+              </span>
+              <h3 class="mt-5 font-heading text-lg font-bold">
+                Respaldo institucional
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                La atención debe estar vinculada a canales oficiales y a
+                información verificable.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Bloque institucional: espacio reemplazable para un video tutorial. -->
+      <section aria-labelledby="multimedia-titulo" class="bg-white py-20 sm:py-24">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10">
+          <div class="order-2 lg:order-1" data-reveal="">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Te acompañamos paso a paso
+            </p>
+            <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl" id="multimedia-titulo">
+              Una guía para llegar mejor preparado.
+            </h2>
+            <p class="mt-4 max-w-prose leading-relaxed text-slate-600">
+              Este espacio puede presentar un tutorial corto o un mensaje
+              institucional sobre los canales de atención y la información que
+              conviene reunir.
+            </p>
+            <h3 class="mt-8 font-heading text-lg font-bold text-slate-950">
+              ¿Qué necesitas para denunciar?
+            </h3>
+            <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-600">
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="check">
+                  </i>
+                </span>
+                Un relato ordenado con fechas, lugares y detalles que recuerdes.
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="check">
+                  </i>
+                </span>
+                Información de contacto si deseas recibir novedades del caso.
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="check">
+                  </i>
+                </span>
+                Documentos o archivos relacionados, si están disponibles.
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800">
+                  <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="check">
+                  </i>
+                </span>
+                Un lugar seguro para guardar tu código de seguimiento.
+              </li>
+            </ul>
+            <a class="group mt-7 inline-flex items-center gap-2 font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#como-funciona">
+              Repasar los pasos
+              <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" data-lucide="arrow-right">
+              </i>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2" data-reveal="">
+            <!-- ESPACIO-VIDEO: tutorial-institucional | 16:9 | 1280x720 -->
+            <div aria-label="Espacio para video tutorial institucional en formato panorámico" class="group relative aspect-video overflow-hidden rounded-3xl border-2 border-dashed border-slate-300 bg-slate-100 shadow-xl shadow-slate-900/5" data-slot="tutorial-institucional" role="img">
+              <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet/10"></div>
               <div class="relative grid h-full place-content-center justify-items-center px-6 text-center">
-                <span class="grid h-16 w-16 place-items-center rounded-2xl bg-white text-primary shadow-lg shadow-slate-900/5"><i data-lucide="image" class="h-8 w-8" aria-hidden="true"></i></span>
-                <p class="mt-4 font-heading text-sm font-bold text-slate-700">Espacio para imagen principal</p>
-                <p class="mt-1 text-xs text-slate-500">4:3 · 1200 × 900 px</p>
+                <span class="grid h-16 w-16 place-items-center rounded-full bg-white text-primary shadow-lg">
+                  <i aria-hidden="true" class="h-7 w-7" data-lucide="video">
+                  </i>
+                </span>
+                <p class="mt-4 font-heading text-sm font-bold text-slate-700">
+                  Espacio para video institucional
+                </p>
+                <p class="mt-1 text-xs text-slate-500">16:9 · 1280 × 720 px</p>
               </div>
-
-              <img data-media-fade src="assets/img/hero-principal.webp" alt="Ilustración de un joven con un teléfono junto a un escudo con candado y señales de verificación." width="1448" height="1086" decoding="async" loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700"></div>
-          </div>
-
-          <article class="absolute -left-2 top-6 flex max-w-[13rem] items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xl shadow-slate-900/10 motion-reduce:animate-none animate-float sm:-left-12 sm:top-12 sm:max-w-[15rem] sm:p-4">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-cyan/15 text-emerald-800"><i data-lucide="file-check-2" class="h-5 w-5" aria-hidden="true"></i></span>
-            <span><span class="block text-xs font-semibold text-slate-500">Vista ilustrativa</span><span class="mt-0.5 block text-sm font-bold text-slate-900">Denuncia registrada</span></span>
-          </article>
-          <article class="absolute -bottom-5 right-0 flex max-w-[13rem] items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xl shadow-slate-900/10 motion-reduce:animate-none animate-float-slow sm:-right-8 sm:max-w-[14rem] sm:p-4">
-            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary"><i data-lucide="shield" class="h-5 w-5" aria-hidden="true"></i></span>
-            <span><span class="block text-xs font-semibold text-slate-500">Protección prioritaria</span><span class="mt-0.5 block text-sm font-bold text-slate-900">Datos protegidos</span></span>
-          </article>
-          <div class="absolute -bottom-7 left-8 hidden items-center gap-2 rounded-full border border-white bg-white/90 px-4 py-2.5 text-xs font-semibold text-slate-600 shadow-lg sm:flex">
-            <i data-lucide="badge-check" class="h-4 w-4 text-primary" aria-hidden="true"></i> Un canal de orientación confiable
+            </div>
+            <p class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500">
+              <i aria-hidden="true" class="h-4 w-4" data-lucide="captions"> </i>
+              Recomendado: subtítulos y transcripción accesible.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Cifras de ejemplo: ilustran cómo puede presentarse el impacto del servicio. -->
-    <section aria-labelledby="estadisticas-titulo" class="border-y border-slate-200/80 bg-white">
-      <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10 lg:py-14">
-        <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div data-reveal>
-            <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Confianza que se construye</p>
-            <h2 id="estadisticas-titulo" class="mt-2 font-heading text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">Atención pensada para las personas</h2>
-          </div>
-          <span class="inline-flex w-fit items-center gap-2 rounded-full bg-amber/20 px-3 py-1.5 text-xs font-semibold text-amber-900"><i data-lucide="flask-conical" class="h-3.5 w-3.5" aria-hidden="true"></i>Cifras ilustrativas de muestra</span>
-        </div>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <article data-reveal class="rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6">
-            <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"><span data-counter data-target="18500" data-suffix="+">18.500+</span></p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Denuncias atendidas</p>
-          </article>
-          <article data-reveal class="delay-100 rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6">
-            <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"><span data-counter data-target="2.4" data-decimals="1" data-suffix=" h">2,4 h</span></p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Tiempo promedio de respuesta</p>
-          </article>
-          <article data-reveal class="delay-200 rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6">
-            <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"><span data-counter data-target="24" data-suffix="/7">24/7</span></p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Disponibilidad del canal</p>
-          </article>
-          <article data-reveal class="delay-300 rounded-2xl border border-slate-100 bg-slate-50/80 p-5 sm:p-6">
-            <p class="font-heading text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl"><span data-counter data-target="96" data-suffix="%">96%</span></p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Satisfacción ciudadana</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Guía rápida: cuatro momentos para orientar el proceso. -->
-    <section id="como-funciona" aria-labelledby="funciona-titulo" class="bg-white py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="mx-auto max-w-2xl text-center">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Un proceso fácil de entender</p>
-          <h2 id="funciona-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">¿Cómo funciona?</h2>
-          <p class="mx-auto mt-4 max-w-prose leading-relaxed text-slate-600">Cada paso te ayuda a organizar la información para que puedas avanzar con más claridad y mantener a la mano tu seguimiento.</p>
-        </div>
-        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article data-reveal class="group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5 motion-reduce:transition-none">
-            <div class="flex items-center justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="list-filter" class="h-6 w-6" aria-hidden="true"></i></span><span class="font-heading text-4xl font-extrabold text-slate-100">01</span></div>
-            <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">Elige el tipo</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Identifica la categoría que mejor describe lo ocurrido y revisa su orientación.</p>
-          </article>
-          <article data-reveal class="delay-100 group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/25 hover:shadow-xl hover:shadow-violet/5 motion-reduce:transition-none">
-            <div class="flex items-center justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="notebook-pen" class="h-6 w-6" aria-hidden="true"></i></span><span class="font-heading text-4xl font-extrabold text-slate-100">02</span></div>
-            <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">Describe lo ocurrido</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Organiza fechas, lugares y detalles importantes con tus propias palabras.</p>
-          </article>
-          <article data-reveal class="delay-200 group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-cyan/40 hover:shadow-xl hover:shadow-cyan/10 motion-reduce:transition-none">
-            <div class="flex items-center justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-cyan/15 text-emerald-800 transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="paperclip" class="h-6 w-6" aria-hidden="true"></i></span><span class="font-heading text-4xl font-extrabold text-slate-100">03</span></div>
-            <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">Adjunta evidencia</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Si cuentas con ella, reúne archivos o referencias que ayuden a contextualizar el caso.</p>
-          </article>
-          <article data-reveal class="delay-300 group relative rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-amber/50 hover:shadow-xl hover:shadow-amber/10 motion-reduce:transition-none">
-            <div class="flex items-center justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber/20 text-amber-900 transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="scan-search" class="h-6 w-6" aria-hidden="true"></i></span><span class="font-heading text-4xl font-extrabold text-slate-100">04</span></div>
-            <h3 class="mt-6 font-heading text-lg font-bold text-slate-950">Recibe seguimiento</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">Conserva tu código de seguimiento para consultar las novedades cuando estén disponibles.</p>
-          </article>
-        </div>
-        <div class="mt-8 flex justify-center"><a href="#tipos" class="group inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold text-primary transition motion-reduce:transition-none hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Explorar tipos de denuncia <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" aria-hidden="true"></i></a></div>
-      </div>
-    </section>
-
-    <!-- Categorías de denuncia: accesos informativos con acentos de color diferenciados. -->
-    <section id="tipos" aria-labelledby="tipos-titulo" class="bg-slate-50 py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div class="max-w-2xl">
-            <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Encuentra orientación</p>
-            <h2 id="tipos-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">¿Qué necesitas denunciar?</h2>
-            <p class="mt-4 max-w-prose leading-relaxed text-slate-600">Selecciona un tema para ver la información que suele ser útil antes de iniciar un reporte.</p>
-          </div>
-          <span class="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-medium text-slate-600"><i data-lucide="info" class="h-4 w-4 text-primary" aria-hidden="true"></i>Orientación demostrativa</span>
-        </div>
-
-        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <article data-reveal class="group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="package-open" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Hurto</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Reporte la sustracción de bienes y prepara una descripción de lo ocurrido.</p>
-            <a href="#consulta" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Denunciar <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="delay-100 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/30 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="phone-call" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Extorsión</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Conserva mensajes y datos de contacto; evita responder si te sientes en riesgo.</p>
-            <a href="#consulta" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Denunciar <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="delay-200 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/30 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="house-heart" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Violencia intrafamiliar</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Busca orientación sobre rutas de apoyo y opciones para relatar el hecho.</p>
-            <a href="#emergencia" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Ver orientación <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="delay-300 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-amber/40 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber/20 text-amber-900 transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="badge-dollar-sign" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Estafa o fraude virtual</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Organiza comprobantes, perfiles, enlaces y conversaciones relacionadas.</p>
-            <a href="#consulta" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Denunciar <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-cyan/40 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-cyan/15 text-emerald-800 transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="messages-square" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Ciberacoso</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Guarda capturas y direcciones de los perfiles o canales donde ocurrió.</p>
-            <a href="#consulta" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Denunciar <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="delay-100 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-slate-400 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-slate-700 transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="construction" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Daño a bienes</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Describe los daños observados, el lugar y el momento aproximado.</p>
-            <a href="#consulta" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Denunciar <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="delay-200 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-violet/30 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/10 text-violet transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="user-round-search" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Persona desaparecida</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Ten a mano una descripción reciente y la información de contacto disponible.</p>
-            <a href="#emergencia" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Ver orientación <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-          <article data-reveal class="delay-300 group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-slate-900 text-white transition motion-reduce:transition-none group-hover:scale-105"><i data-lucide="scale" class="h-6 w-6" aria-hidden="true"></i></span>
-            <h3 class="mt-5 font-heading text-lg font-bold text-slate-950">Otros delitos</h3><p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-600">Si no encuentras una categoría exacta, consulta las opciones de orientación.</p>
-            <a href="#consulta" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Ver opciones <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seguridad y privacidad en bloque oscuro para dar contraste y ritmo visual. -->
-    <section aria-labelledby="seguridad-titulo" class="relative overflow-hidden bg-slate-950 py-20 text-white sm:py-24">
-      <div class="pointer-events-none absolute -right-24 top-0 h-80 w-80 rounded-full bg-primary/20 blur-3xl" aria-hidden="true"></div>
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="max-w-2xl">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-cyan">Tu tranquilidad importa</p>
-          <h2 id="seguridad-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl">La confianza también es parte del proceso.</h2>
-          <p class="mt-4 max-w-prose leading-relaxed text-slate-300">La información sobre protección debe ser clara desde el primer momento. Estos principios representan el estándar que una plataforma institucional debe explicar.</p>
-        </div>
-        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <article data-reveal class="rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09] motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/20 text-blue-200"><i data-lucide="eye-off" class="h-6 w-6" aria-hidden="true"></i></span><h3 class="mt-5 font-heading text-lg font-bold">Confidencialidad</h3><p class="mt-2 text-sm leading-relaxed text-slate-300">Acceso a la información limitado al personal autorizado, según las políticas aplicables.</p>
-          </article>
-          <article data-reveal class="delay-100 rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09] motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-cyan/15 text-cyan"><i data-lucide="lock-keyhole" class="h-6 w-6" aria-hidden="true"></i></span><h3 class="mt-5 font-heading text-lg font-bold">Cifrado de datos</h3><p class="mt-2 text-sm leading-relaxed text-slate-300">La protección técnica debe acompañar los datos durante su transmisión y almacenamiento.</p>
-          </article>
-          <article data-reveal class="delay-200 rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09] motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-violet/20 text-violet-200"><i data-lucide="user-round-x" class="h-6 w-6" aria-hidden="true"></i></span><h3 class="mt-5 font-heading text-lg font-bold">Anonimato opcional</h3><p class="mt-2 text-sm leading-relaxed text-slate-300">La disponibilidad depende del tipo de hecho y de la normativa vigente; revisa las condiciones.</p>
-          </article>
-          <article data-reveal class="delay-300 rounded-3xl border border-white/10 bg-white/[0.06] p-6 transition motion-reduce:transition-none hover:-translate-y-1 hover:bg-white/[0.09] motion-reduce:transition-none">
-            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber/15 text-amber"><i data-lucide="landmark" class="h-6 w-6" aria-hidden="true"></i></span><h3 class="mt-5 font-heading text-lg font-bold">Respaldo institucional</h3><p class="mt-2 text-sm leading-relaxed text-slate-300">La atención debe estar vinculada a canales oficiales y a información verificable.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bloque institucional: espacio reemplazable para un video tutorial. -->
-    <section aria-labelledby="multimedia-titulo" class="bg-white py-20 sm:py-24">
-      <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10">
-        <div data-reveal class="order-2 lg:order-1">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Te acompañamos paso a paso</p>
-          <h2 id="multimedia-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Una guía para llegar mejor preparado.</h2>
-          <p class="mt-4 max-w-prose leading-relaxed text-slate-600">Este espacio puede presentar un tutorial corto o un mensaje institucional sobre los canales de atención y la información que conviene reunir.</p>
-          <h3 class="mt-8 font-heading text-lg font-bold text-slate-950">¿Qué necesitas para denunciar?</h3>
-          <ul class="mt-4 space-y-3 text-sm leading-relaxed text-slate-600">
-            <li class="flex gap-3"><span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800"><i data-lucide="check" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Un relato ordenado con fechas, lugares y detalles que recuerdes.</li>
-            <li class="flex gap-3"><span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800"><i data-lucide="check" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Información de contacto si deseas recibir novedades del caso.</li>
-            <li class="flex gap-3"><span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800"><i data-lucide="check" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Documentos o archivos relacionados, si están disponibles.</li>
-            <li class="flex gap-3"><span class="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-cyan/20 text-emerald-800"><i data-lucide="check" class="h-3.5 w-3.5" aria-hidden="true"></i></span>Un lugar seguro para guardar tu código de seguimiento.</li>
-          </ul>
-          <a href="#como-funciona" class="group mt-7 inline-flex items-center gap-2 font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Repasar los pasos <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" aria-hidden="true"></i></a>
-        </div>
-        <div data-reveal class="order-1 lg:order-2">
-          <!-- ESPACIO-VIDEO: tutorial-institucional | 16:9 | 1280x720 -->
-          <div data-slot="tutorial-institucional" role="img" aria-label="Espacio para video tutorial institucional en formato panorámico" class="group relative aspect-video overflow-hidden rounded-3xl border-2 border-dashed border-slate-300 bg-slate-100 shadow-xl shadow-slate-900/5">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet/10" aria-hidden="true"></div>
-            <div class="relative grid h-full place-content-center justify-items-center px-6 text-center">
-              <span class="grid h-16 w-16 place-items-center rounded-full bg-white text-primary shadow-lg"><i data-lucide="video" class="h-7 w-7" aria-hidden="true"></i></span>
-              <p class="mt-4 font-heading text-sm font-bold text-slate-700">Espacio para video institucional</p>
-              <p class="mt-1 text-xs text-slate-500">16:9 · 1280 × 720 px</p>
+      </section>
+      <!-- Consulta de estado: formulario visual sin envío ni conexión a un servicio. -->
+      <section aria-labelledby="consulta-titulo" class="bg-slate-50 py-20 sm:py-24" id="consulta">
+        <div class="mx-auto max-w-5xl px-5 sm:px-8 lg:px-10">
+          <div class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-900/5 sm:p-10 lg:p-12" data-reveal="">
+            <div aria-hidden="true" class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+            <div class="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+              <div>
+                <span class="grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary">
+                  <i aria-hidden="true" class="h-7 w-7" data-lucide="file-search-2">
+                  </i>
+                </span>
+                <p class="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                  Seguimiento sencillo
+                </p>
+                <h2 class="mt-2 font-heading text-3xl font-bold tracking-tight text-slate-950" id="consulta-titulo">
+                  Consulta el estado de tu denuncia
+                </h2>
+                <p class="mt-4 max-w-prose text-sm leading-relaxed text-slate-600">
+                  Ingresa el código que recibiste al realizar el reporte para
+                  revisar sus novedades a través del canal habilitado.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-slate-50 p-5 sm:p-6">
+                <label class="block text-sm font-semibold text-slate-800" for="codigo-seguimiento">
+                  Código de seguimiento
+                </label>
+                <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+                  <input autocomplete="off" class="min-h-12 min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" id="codigo-seguimiento" placeholder="Ej. DV-2026-000000" type="text">
+                  <button class="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition motion-reduce:transition-none hover:bg-blue-700 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30" type="button">
+                    Consultar
+                    <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" data-lucide="arrow-right">
+                    </i>
+                  </button>
+                </div>
+                <p class="mt-3 flex gap-2 text-xs leading-relaxed text-slate-500">
+                  <i aria-hidden="true" class="mt-0.5 h-4 w-4 shrink-0 text-primary" data-lucide="info">
+                  </i>
+                  Campo y botón de demostración. Esta página no consulta casos
+                  ni procesa información.
+                </p>
+                <a class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#preguntas">
+                  <i aria-hidden="true" class="h-4 w-4" data-lucide="circle-help">
+                  </i>
+                  ¿Dónde encuentro mi código?
+                </a>
+              </div>
             </div>
           </div>
-          <p class="mt-3 flex items-center justify-center gap-2 text-xs text-slate-500"><i data-lucide="captions" class="h-4 w-4" aria-hidden="true"></i>Recomendado: subtítulos y transcripción accesible.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Consulta de estado: formulario visual sin envío ni conexión a un servicio. -->
-    <section id="consulta" aria-labelledby="consulta-titulo" class="bg-slate-50 py-20 sm:py-24">
-      <div class="mx-auto max-w-5xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-900/5 sm:p-10 lg:p-12">
-          <div class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
-          <div class="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      </section>
+      <!-- Noticias: consulta artículos de todo Colombia mediante el endpoint local del servidor. -->
+      <section aria-labelledby="noticias-titulo" class="bg-white py-20 sm:py-24" id="noticias">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal="">
             <div>
-              <span class="grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary"><i data-lucide="file-search-2" class="h-7 w-7" aria-hidden="true"></i></span>
-              <p class="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">Seguimiento sencillo</p>
-              <h2 id="consulta-titulo" class="mt-2 font-heading text-3xl font-bold tracking-tight text-slate-950">Consulta el estado de tu denuncia</h2>
-              <p class="mt-4 max-w-prose text-sm leading-relaxed text-slate-600">Ingresa el código que recibiste al realizar el reporte para revisar sus novedades a través del canal habilitado.</p>
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                Información útil
+              </p>
+              <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl" id="noticias-titulo">
+                Noticias
+              </h2>
+              <p class="mt-3 max-w-prose leading-relaxed text-slate-600">
+                Actualidad nacional publicada por fuentes huilenses .
+              </p>
             </div>
-            <div class="rounded-2xl bg-slate-50 p-5 sm:p-6">
-              <label for="codigo-seguimiento" class="block text-sm font-semibold text-slate-800">Código de seguimiento</label>
-              <div class="mt-2 flex flex-col gap-3 sm:flex-row">
-                <input id="codigo-seguimiento" type="text" placeholder="Ej. DV-2026-000000" autocomplete="off" class="min-h-12 min-w-0 flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">
-                <button type="button" class="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition motion-reduce:transition-none hover:bg-blue-700 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30">Consultar <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" aria-hidden="true"></i></button>
+            <a class="group inline-flex w-fit items-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#noticias">
+              Ver todas las noticias
+              <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5" data-lucide="arrow-up-right">
+              </i>
+            </a>
+          </div>
+          <p aria-live="polite" class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-relaxed text-slate-600" data-news-status="" role="status">
+            Cargando noticias…
+          </p>
+          <div class="mt-10 gap-5 lg:grid-cols-2" data-news-grid="" hidden="">
+            <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl" data-news-card="" data-reveal="" hidden="">
+              <!-- ESPACIO-IMG: noticia-destacada | fuente 16:9 | 1280x720 -->
+              <div aria-label="Imagen relacionada con la noticia destacada" class="relative aspect-[16/10] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100" data-slot="noticia-destacada" role="img">
+                <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-violet/5 to-primary/10"></div>
+                <div class="relative grid h-full place-content-center justify-items-center px-6 text-center" data-news-placeholder="">
+                  <span class="grid h-14 w-14 place-items-center rounded-2xl bg-white text-primary shadow">
+                    <i aria-hidden="true" class="h-7 w-7" data-lucide="image">
+                    </i>
+                  </span>
+                  <p class="mt-3 text-sm font-bold text-slate-700">
+                    Imagen no disponible
+                  </p>
+                  <p class="text-xs text-slate-500">
+                    La noticia puede publicarse sin fotografía
+                  </p>
+                </div>
+                <div class="absolute inset-0 transition duration-500 group-hover:scale-105">
+                  <img alt="Ilustración de una agente de policía conversando con una familia en una plaza." class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700" data-media-fade="" data-news-image="" decoding="async" height="941" loading="lazy" src="assets/img/noticia-destacada.webp" width="1672">
+                </div>
               </div>
-              <p class="mt-3 flex gap-2 text-xs leading-relaxed text-slate-500"><i data-lucide="info" class="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true"></i>Campo y botón de demostración. Esta página no consulta casos ni procesa información.</p>
-              <a href="#preguntas" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20"><i data-lucide="circle-help" class="h-4 w-4" aria-hidden="true"></i>¿Dónde encuentro mi código?</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Noticias: consulta artículos de todo Colombia mediante el endpoint local del servidor. -->
-    <section id="noticias" aria-labelledby="noticias-titulo" class="bg-white py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Información útil</p>
-            <h2 id="noticias-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Noticias de toda Colombia</h2>
-            <p class="mt-3 max-w-prose leading-relaxed text-slate-600">Actualidad nacional publicada por fuentes colombianas.</p>
-          </div>
-          <a href="#noticias" class="group inline-flex w-fit items-center gap-2 rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition motion-reduce:transition-none hover:border-primary/30 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Ver todas las noticias <i data-lucide="arrow-up-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true"></i></a>
-        </div>
-
-        <p data-news-status role="status" aria-live="polite" class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-sm leading-relaxed text-slate-600">Cargando noticias de Colombia…</p>
-        <div data-news-grid class="mt-10 gap-5 lg:grid-cols-2" hidden>
-          <article data-reveal data-news-card class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl motion-reduce:transition-none" hidden>
-            <!-- ESPACIO-IMG: noticia-destacada | fuente 16:9 | 1280x720 -->
-            <div data-slot="noticia-destacada" role="img" aria-label="Imagen relacionada con la noticia destacada" class="relative aspect-[16/10] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100">
-              <div class="absolute inset-0 bg-gradient-to-br from-violet/5 to-primary/10" aria-hidden="true"></div>
-              <div data-news-placeholder class="relative grid h-full place-content-center justify-items-center px-6 text-center"><span class="grid h-14 w-14 place-items-center rounded-2xl bg-white text-primary shadow"><i data-lucide="image" class="h-7 w-7" aria-hidden="true"></i></span><p class="mt-3 text-sm font-bold text-slate-700">Imagen no disponible</p><p class="text-xs text-slate-500">La noticia puede publicarse sin fotografía</p></div>
-              <div class="absolute inset-0 transition duration-500 group-hover:scale-105"><img data-news-image alt="" decoding="async" loading="lazy" class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-700"></div>
-            </div>
-            <div class="p-6 sm:p-7">
-              <div class="flex flex-wrap items-center gap-2"><span data-news-category class="rounded-full bg-violet/10 px-3 py-1 text-xs font-semibold text-violet">Actualidad nacional</span><time data-news-date class="text-xs text-slate-500"></time><span data-news-source class="rounded-full bg-amber/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-amber-900">Fuente</span></div>
-              <h3 data-news-title class="mt-4 font-heading text-xl font-bold leading-snug text-slate-950 sm:text-2xl"></h3>
-              <p data-news-description class="mt-3 line-clamp-2 max-w-prose text-sm leading-relaxed text-slate-600"></p>
-              <a data-news-link href="#noticias" class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Leer más <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" aria-hidden="true"></i></a>
-            </div>
-          </article>
-
-          <div data-news-secondary-grid class="grid gap-5 sm:grid-cols-2">
-            <article data-reveal data-news-card class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl motion-reduce:transition-none" hidden>
-              <!-- ESPACIO-IMG: noticia-1 | fuente 3:2 | 900x600 -->
-              <div data-slot="noticia-1" role="img" aria-label="Imagen relacionada con una noticia de Colombia" class="relative aspect-[4/3] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100"><div class="absolute inset-0 bg-gradient-to-br from-cyan/10 to-primary/5" aria-hidden="true"></div><div data-news-placeholder class="relative grid h-full place-content-center justify-items-center px-4 text-center"><i data-lucide="image" class="h-7 w-7 text-primary" aria-hidden="true"></i><p class="mt-2 text-xs font-semibold text-slate-700">Imagen no disponible</p><p class="text-[11px] text-slate-500">La fuente no incluyó fotografía</p></div><div class="absolute inset-0 transition duration-500 group-hover:scale-105"><img data-news-image alt="" decoding="async" loading="lazy" class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-700"></div></div>
-              <div class="p-5"><div class="flex flex-wrap items-center gap-2"><span data-news-category class="rounded-full bg-cyan/20 px-2.5 py-1 text-[11px] font-semibold text-emerald-900">Actualidad nacional</span><time data-news-date class="text-[11px] text-slate-500"></time><span data-news-source class="text-[10px] font-bold uppercase text-amber-800">Fuente</span></div><h3 data-news-title class="mt-3 font-heading text-base font-bold leading-snug text-slate-950"></h3><p data-news-description class="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600"></p><a data-news-link href="#noticias" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Leer más <i data-lucide="arrow-right" class="h-3.5 w-3.5" aria-hidden="true"></i></a></div>
-            </article>
-            <article data-reveal data-news-card class="delay-100 group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl motion-reduce:transition-none" hidden>
-              <!-- ESPACIO-IMG: noticia-2 | fuente 3:2 | 900x600 -->
-              <div data-slot="noticia-2" role="img" aria-label="Imagen relacionada con una noticia de Colombia" class="relative aspect-[4/3] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100"><div class="absolute inset-0 bg-gradient-to-br from-amber/10 to-violet/5" aria-hidden="true"></div><div data-news-placeholder class="relative grid h-full place-content-center justify-items-center px-4 text-center"><i data-lucide="image" class="h-7 w-7 text-primary" aria-hidden="true"></i><p class="mt-2 text-xs font-semibold text-slate-700">Imagen no disponible</p><p class="text-[11px] text-slate-500">La fuente no incluyó fotografía</p></div><div class="absolute inset-0 transition duration-500 group-hover:scale-105"><img data-news-image alt="" decoding="async" loading="lazy" class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-700"></div></div>
-              <div class="p-5"><div class="flex flex-wrap items-center gap-2"><span data-news-category class="rounded-full bg-amber/20 px-2.5 py-1 text-[11px] font-semibold text-amber-900">Actualidad nacional</span><time data-news-date class="text-[11px] text-slate-500"></time><span data-news-source class="text-[10px] font-bold uppercase text-amber-800">Fuente</span></div><h3 data-news-title class="mt-3 font-heading text-base font-bold leading-snug text-slate-950"></h3><p data-news-description class="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600"></p><a data-news-link href="#noticias" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Leer más <i data-lucide="arrow-right" class="h-3.5 w-3.5" aria-hidden="true"></i></a></div>
-            </article>
-            <article data-reveal data-news-card class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl motion-reduce:transition-none sm:col-span-2" hidden>
-              <!-- ESPACIO-IMG: noticia-3 | fuente 3:2 | 900x600 -->
-              <div data-slot="noticia-3" role="img" aria-label="Imagen relacionada con una noticia de Colombia" class="relative aspect-[4/3] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100 sm:aspect-auto sm:min-h-56 sm:border-b-0 sm:border-r-2"><div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-cyan/10" aria-hidden="true"></div><div data-news-placeholder class="relative grid h-full min-h-48 place-content-center justify-items-center px-4 text-center"><i data-lucide="image" class="h-7 w-7 text-primary" aria-hidden="true"></i><p class="mt-2 text-xs font-semibold text-slate-700">Imagen no disponible</p><p class="text-[11px] text-slate-500">La fuente no incluyó fotografía</p></div><div class="absolute inset-0 transition duration-500 group-hover:scale-105"><img data-news-image alt="" decoding="async" loading="lazy" class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-700"></div></div>
-              <div class="p-5 sm:p-6"><div class="flex flex-wrap items-center gap-2"><span data-news-category class="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">Actualidad nacional</span><time data-news-date class="text-[11px] text-slate-500"></time><span data-news-source class="text-[10px] font-bold uppercase text-amber-800">Fuente</span></div><h3 data-news-title class="mt-3 font-heading text-base font-bold leading-snug text-slate-950 sm:text-lg"></h3><p data-news-description class="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600"></p><a data-news-link href="#noticias" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Leer más <i data-lucide="arrow-right" class="h-3.5 w-3.5" aria-hidden="true"></i></a></div>
-            </article>
-          </div>
-        </div>
-        <p class="mt-5 text-center text-xs text-slate-500">Fuente: <a href="https://apitube.io" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary hover:underline focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">APITube</a>. El plan gratuito puede mostrar noticias con hasta 12 horas de retraso.</p>
-      </div>
-    </section>
-
-    <!-- Foro: conversación comunitaria de ejemplo, con categorías, normas e hilos. -->
-    <section id="foro" aria-labelledby="foro-titulo" class="bg-slate-50 py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div><p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Comunidad y orientación</p><h2 id="foro-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Conversemos con respeto.</h2><p class="mt-3 max-w-prose leading-relaxed text-slate-600">Un espacio de ejemplo para compartir preguntas generales y encontrar información útil.</p></div>
-          <a href="#foro" class="group inline-flex w-fit items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition motion-reduce:transition-none hover:bg-slate-800 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-400/40"><i data-lucide="plus" class="h-4 w-4" aria-hidden="true"></i>Crear nuevo tema</a>
-        </div>
-        <div class="mt-10 grid items-start gap-6 lg:grid-cols-[0.78fr_1.5fr]">
-          <aside data-reveal aria-label="Información del foro" class="space-y-5">
-            <section class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 class="font-heading text-base font-bold text-slate-950">Categorías</h3>
-              <ul class="mt-4 space-y-1">
-                <li><a href="#foro" class="flex items-center justify-between rounded-xl bg-primary/5 px-3 py-3 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20"><span class="inline-flex items-center gap-3"><i data-lucide="messages-square" class="h-4 w-4" aria-hidden="true"></i>General</span><span class="rounded-full bg-white px-2 py-0.5 text-xs">24</span></a></li>
-                <li><a href="#foro" class="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20"><span class="inline-flex items-center gap-3"><i data-lucide="shield-alert" class="h-4 w-4" aria-hidden="true"></i>Prevención</span><span class="text-xs text-slate-400">18</span></a></li>
-                <li><a href="#foro" class="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20"><span class="inline-flex items-center gap-3"><i data-lucide="globe-2" class="h-4 w-4" aria-hidden="true"></i>Seguridad digital</span><span class="text-xs text-slate-400">12</span></a></li>
-                <li><a href="#foro" class="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-slate-600 transition motion-reduce:transition-none hover:bg-slate-50 hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20"><span class="inline-flex items-center gap-3"><i data-lucide="circle-help" class="h-4 w-4" aria-hidden="true"></i>Dudas frecuentes</span><span class="text-xs text-slate-400">9</span></a></li>
-              </ul>
-            </section>
-            <section class="rounded-3xl border border-amber-200 bg-amber-50 p-5">
-              <div class="flex items-start gap-3"><span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/30 text-amber-950"><i data-lucide="heart-handshake" class="h-5 w-5" aria-hidden="true"></i></span><div><h3 class="font-heading text-sm font-bold text-slate-950">Normas de convivencia</h3><p class="mt-2 text-xs leading-relaxed text-slate-700">Cuida tus datos personales, trata a las demás personas con respeto y evita publicar información sensible o detalles que identifiquen a terceros.</p><a href="#foro" class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber/40">Conocer las normas <i data-lucide="arrow-right" class="h-3.5 w-3.5" aria-hidden="true"></i></a></div></div>
-            </section>
-            <p class="px-2 text-xs leading-relaxed text-slate-500">Foro ilustrativo: no permite publicar mensajes ni representa una comunidad activa.</p>
-          </aside>
-
-          <div class="space-y-3">
-            <article data-reveal class="rounded-2xl border border-primary/20 bg-white p-4 shadow-sm sm:p-5">
-              <div class="flex gap-3 sm:gap-4">
-                <!-- ESPACIO-IMG: foro-avatar-1 | 1:1 | 200x200 -->
-                <div data-slot="foro-avatar-1" role="img" aria-label="Mosaico ilustrado con cinco retratos de participantes y una agente policial." class="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full border-2 border-dashed border-primary/30 bg-primary/5 text-primary sm:h-14 sm:w-14"><span class="grid place-items-center"><i data-lucide="image" class="h-4 w-4" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></span><img data-media-fade src="assets/img/foro-avatar-1.webp" alt="Mosaico ilustrado con cinco retratos de participantes y una agente policial." width="1254" height="1254" decoding="async" loading="lazy" class="absolute inset-0 h-full w-full rounded-full object-cover ring-2 ring-white opacity-0 transition-opacity duration-700"></div>
-                <div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-amber/25 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-amber-950"><i data-lucide="pin" class="mr-1 inline h-3 w-3" aria-hidden="true"></i>Fijado</span><span class="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-semibold text-primary">Información importante</span><time datetime="2026-08-14" class="text-[11px] text-slate-500">14 ago. 2026</time></div><h3 class="mt-2 font-heading text-base font-bold leading-snug text-slate-950 sm:text-lg"><a href="#foro" class="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Bienvenidos: cómo usar este espacio de orientación</a></h3><div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>por Equipo de moderación</span><span class="inline-flex items-center gap-1"><i data-lucide="message-circle" class="h-3.5 w-3.5" aria-hidden="true"></i>14 respuestas</span><span class="inline-flex items-center gap-1"><i data-lucide="eye" class="h-3.5 w-3.5" aria-hidden="true"></i>1.2 mil vistas</span><span>Actualizado hace 20 min</span></div></div>
+              <div class="p-6 sm:p-7">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-violet/10 px-3 py-1 text-xs font-semibold text-violet" data-news-category="">
+                    Actualidad nacional
+                  </span>
+                  <time class="text-xs text-slate-500" data-news-date="">
+                  </time>
+                  <span class="rounded-full bg-amber/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-amber-900" data-news-source="">
+                    Fuente
+                  </span>
+                </div>
+                <h3 class="mt-4 font-heading text-xl font-bold leading-snug text-slate-950 sm:text-2xl" data-news-title=""></h3>
+                <p class="mt-3 line-clamp-2 max-w-prose text-sm leading-relaxed text-slate-600" data-news-description=""></p>
+                <a class="group/link mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" data-news-link="" href="#noticias">
+                  Leer más
+                  <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover/link:translate-x-1" data-lucide="arrow-right">
+                  </i>
+                </a>
               </div>
             </article>
-            <article data-reveal class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5">
-              <div class="flex gap-3 sm:gap-4"><!-- ESPACIO-IMG: foro-avatar-2 | 1:1 | 200x200 --><div data-slot="foro-avatar-2" role="img" aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14"><i data-lucide="image" class="h-4 w-4" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></div><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-cyan/20 px-2.5 py-1 text-[10px] font-semibold text-emerald-900">Seguridad digital</span><time datetime="2026-08-14" class="text-[11px] text-slate-500">14 ago. 2026</time></div><h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base"><a href="#foro" class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">¿Qué datos conviene guardar si recibo un mensaje sospechoso?</a></h3><div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>por Andrea M. <span class="text-slate-400">(nombre de muestra)</span></span><span class="inline-flex items-center gap-1"><i data-lucide="message-circle" class="h-3.5 w-3.5" aria-hidden="true"></i>8 respuestas</span><span class="inline-flex items-center gap-1"><i data-lucide="eye" class="h-3.5 w-3.5" aria-hidden="true"></i>326 vistas</span><span>Hace 12 min</span></div></div></div>
-            </article>
-            <article data-reveal class="delay-100 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5">
-              <div class="flex gap-3 sm:gap-4"><!-- ESPACIO-IMG: foro-avatar-3 | 1:1 | 200x200 --><div data-slot="foro-avatar-3" role="img" aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14"><i data-lucide="image" class="h-4 w-4" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></div><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-violet/10 px-2.5 py-1 text-[10px] font-semibold text-violet">Dudas frecuentes</span><time datetime="2026-08-13" class="text-[11px] text-slate-500">13 ago. 2026</time></div><h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base"><a href="#foro" class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">¿Cómo puedo consultar un código de seguimiento?</a></h3><div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>por Julián R. <span class="text-slate-400">(nombre de muestra)</span></span><span class="inline-flex items-center gap-1"><i data-lucide="message-circle" class="h-3.5 w-3.5" aria-hidden="true"></i>6 respuestas</span><span class="inline-flex items-center gap-1"><i data-lucide="eye" class="h-3.5 w-3.5" aria-hidden="true"></i>214 vistas</span><span>Hace 1 h</span></div></div></div>
-            </article>
-            <article data-reveal class="delay-200 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5">
-              <div class="flex gap-3 sm:gap-4"><!-- ESPACIO-IMG: foro-avatar-4 | 1:1 | 200x200 --><div data-slot="foro-avatar-4" role="img" aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14"><i data-lucide="image" class="h-4 w-4" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></div><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-amber/20 px-2.5 py-1 text-[10px] font-semibold text-amber-950">Prevención</span><time datetime="2026-08-13" class="text-[11px] text-slate-500">13 ago. 2026</time></div><h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base"><a href="#foro" class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Consejos para proteger mis cuentas personales</a></h3><div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>por Camila P. <span class="text-slate-400">(nombre de muestra)</span></span><span class="inline-flex items-center gap-1"><i data-lucide="message-circle" class="h-3.5 w-3.5" aria-hidden="true"></i>11 respuestas</span><span class="inline-flex items-center gap-1"><i data-lucide="eye" class="h-3.5 w-3.5" aria-hidden="true"></i>487 vistas</span><span>Hace 3 h</span></div></div></div>
-            </article>
-            <article data-reveal class="delay-300 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5">
-              <div class="flex gap-3 sm:gap-4"><!-- ESPACIO-IMG: foro-avatar-5 | 1:1 | 200x200 --><div data-slot="foro-avatar-5" role="img" aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14"><i data-lucide="image" class="h-4 w-4" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></div><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-semibold text-primary">General</span><time datetime="2026-08-12" class="text-[11px] text-slate-500">12 ago. 2026</time></div><h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base"><a href="#foro" class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">¿Hay una lista de documentos útiles para empezar?</a></h3><div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>por Mateo G. <span class="text-slate-400">(nombre de muestra)</span></span><span class="inline-flex items-center gap-1"><i data-lucide="message-circle" class="h-3.5 w-3.5" aria-hidden="true"></i>4 respuestas</span><span class="inline-flex items-center gap-1"><i data-lucide="eye" class="h-3.5 w-3.5" aria-hidden="true"></i>179 vistas</span><span>Hace 5 h</span></div></div></div>
-            </article>
-            <div class="pt-2 text-center"><a href="#foro" class="group inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-primary transition motion-reduce:transition-none hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Ver más conversaciones <i data-lucide="arrow-right" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" aria-hidden="true"></i></a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Emergencia: único uso del color danger, con llamada clara a buscar ayuda inmediata. -->
-    <section id="emergencia" aria-labelledby="emergencia-titulo" class="bg-white py-12 sm:py-16">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="relative overflow-hidden rounded-[2rem] bg-danger p-6 text-slate-950 shadow-xl shadow-danger/20 sm:p-9 lg:p-10">
-          <div class="pointer-events-none absolute -right-8 -top-20 h-64 w-64 rounded-full border-[32px] border-white/10" aria-hidden="true"></div>
-          <div class="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div class="flex items-start gap-4 sm:gap-5">
-              <span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/25 text-slate-950 motion-reduce:animate-none animate-pulse"><i data-lucide="siren" class="h-7 w-7" aria-hidden="true"></i></span>
-              <div><p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-900/75">Atención inmediata</p><h2 id="emergencia-titulo" class="mt-1 font-heading text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">Si estás en peligro, no uses este formulario: llama ahora.</h2><p class="mt-2 max-w-2xl text-sm leading-relaxed text-slate-900/80">Busca un lugar seguro y comunícate con el servicio de emergencias de tu zona. Reemplaza el marcador por el número oficial antes de publicar.</p></div>
+            <div class="grid gap-5 sm:grid-cols-2" data-news-secondary-grid="">
+              <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl" data-news-card="" data-reveal="" hidden="">
+                <!-- ESPACIO-IMG: noticia-1 | fuente 3:2 | 900x600 -->
+                <div aria-label="Imagen relacionada con una noticia de Colombia" class="relative aspect-[4/3] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100" data-slot="noticia-1" role="img">
+                  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-cyan/10 to-primary/5"></div>
+                  <div class="relative grid h-full place-content-center justify-items-center px-4 text-center" data-news-placeholder="">
+                    <i aria-hidden="true" class="h-7 w-7 text-primary" data-lucide="image">
+                    </i>
+                    <p class="mt-2 text-xs font-semibold text-slate-700">
+                      Imagen no disponible
+                    </p>
+                    <p class="text-[11px] text-slate-500">
+                      La fuente no incluyó fotografía
+                    </p>
+                  </div>
+                  <div class="absolute inset-0 transition duration-500 group-hover:scale-105">
+                    <img alt="Ilustración de un joven usando un portátil junto a símbolos de protección digital." class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700" data-media-fade="" data-news-image="" decoding="async" height="1024" loading="lazy" src="assets/img/noticia-1.webp" width="1536">
+                  </div>
+                </div>
+                <div class="p-5">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="rounded-full bg-cyan/20 px-2.5 py-1 text-[11px] font-semibold text-emerald-900" data-news-category="">
+                      Actualidad nacional
+                    </span>
+                    <time class="text-[11px] text-slate-500" data-news-date="">
+                    </time>
+                    <span class="text-[10px] font-bold uppercase text-amber-800" data-news-source="">
+                      Fuente
+                    </span>
+                  </div>
+                  <h3 class="mt-3 font-heading text-base font-bold leading-snug text-slate-950" data-news-title=""></h3>
+                  <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600" data-news-description=""></p>
+                  <a class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" data-news-link="" href="#noticias">
+                    Leer más
+                    <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="arrow-right">
+                    </i>
+                  </a>
+                </div>
+              </article>
+              <article class="delay-100 group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl" data-news-card="" data-reveal="" hidden="">
+                <!-- ESPACIO-IMG: noticia-2 | fuente 3:2 | 900x600 -->
+                <div aria-label="Imagen relacionada con una noticia de Colombia" class="relative aspect-[4/3] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100" data-slot="noticia-2" role="img">
+                  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-amber/10 to-violet/5"></div>
+                  <div class="relative grid h-full place-content-center justify-items-center px-4 text-center" data-news-placeholder="">
+                    <i aria-hidden="true" class="h-7 w-7 text-primary" data-lucide="image">
+                    </i>
+                    <p class="mt-2 text-xs font-semibold text-slate-700">
+                      Imagen no disponible
+                    </p>
+                    <p class="text-[11px] text-slate-500">
+                      La fuente no incluyó fotografía
+                    </p>
+                  </div>
+                  <div class="absolute inset-0 transition duration-500 group-hover:scale-105">
+                    <img alt="" class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-700" data-news-image="" decoding="async" loading="lazy">
+                  </div>
+                </div>
+                <div class="p-5">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="rounded-full bg-amber/20 px-2.5 py-1 text-[11px] font-semibold text-amber-900" data-news-category="">
+                      Actualidad nacional
+                    </span>
+                    <time class="text-[11px] text-slate-500" data-news-date="">
+                    </time>
+                    <span class="text-[10px] font-bold uppercase text-amber-800" data-news-source="">
+                      Fuente
+                    </span>
+                  </div>
+                  <h3 class="mt-3 font-heading text-base font-bold leading-snug text-slate-950" data-news-title=""></h3>
+                  <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600" data-news-description=""></p>
+                  <a class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" data-news-link="" href="#noticias">
+                    Leer más
+                    <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="arrow-right">
+                    </i>
+                  </a>
+                </div>
+              </article>
+              <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2" data-news-card="" data-reveal="" hidden="">
+                <!-- ESPACIO-IMG: noticia-3 | fuente 3:2 | 900x600 -->
+                <div aria-label="Imagen relacionada con una noticia de Colombia" class="relative aspect-[4/3] overflow-hidden border-b-2 border-dashed border-slate-300 bg-slate-100 sm:aspect-auto sm:min-h-56 sm:border-b-0 sm:border-r-2" data-slot="noticia-3" role="img">
+                  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-primary/5 to-cyan/10"></div>
+                  <div class="relative grid h-full min-h-48 place-content-center justify-items-center px-4 text-center" data-news-placeholder="">
+                    <i aria-hidden="true" class="h-7 w-7 text-primary" data-lucide="image">
+                    </i>
+                    <p class="mt-2 text-xs font-semibold text-slate-700">
+                      Imagen no disponible
+                    </p>
+                    <p class="text-[11px] text-slate-500">
+                      La fuente no incluyó fotografía
+                    </p>
+                  </div>
+                  <div class="absolute inset-0 transition duration-500 group-hover:scale-105">
+                    <img alt="" class="absolute inset-0 hidden h-full w-full object-cover opacity-0 transition-opacity duration-700" data-news-image="" decoding="async" loading="lazy">
+                  </div>
+                </div>
+                <div class="p-5 sm:p-6">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary" data-news-category="">
+                      Actualidad nacional
+                    </span>
+                    <time class="text-[11px] text-slate-500" data-news-date="">
+                    </time>
+                    <span class="text-[10px] font-bold uppercase text-amber-800" data-news-source="">
+                      Fuente
+                    </span>
+                  </div>
+                  <h3 class="mt-3 font-heading text-base font-bold leading-snug text-slate-950 sm:text-lg" data-news-title=""></h3>
+                  <p class="mt-2 line-clamp-2 text-xs leading-relaxed text-slate-600" data-news-description=""></p>
+                  <a class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" data-news-link="" href="#noticias">
+                    Leer más
+                    <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="arrow-right">
+                    </i>
+                  </a>
+                </div>
+              </article>
             </div>
-            <a href="#emergencia" aria-label="Número de emergencia pendiente de completar" class="inline-flex min-h-14 shrink-0 items-center justify-center gap-3 rounded-2xl bg-slate-950 px-6 py-4 font-heading text-lg font-extrabold text-white shadow-lg transition motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-slate-800 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60"><i data-lucide="phone" class="h-5 w-5" aria-hidden="true"></i>[NÚMERO]</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Testimonios: textos ficticios de muestra, no atribuidos a usuarios reales. -->
-    <section aria-labelledby="testimonios-titulo" class="bg-slate-50 py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div data-reveal class="mx-auto max-w-2xl text-center">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Experiencias de ejemplo</p>
-          <h2 id="testimonios-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Una atención que escucha.</h2>
-          <p class="mt-4 leading-relaxed text-slate-600">Los siguientes comentarios son ficticios y solo ilustran cómo podría verse esta sección.</p>
+      </section>
+      <!-- Foro: conversación comunitaria de ejemplo, con categorías, normas e hilos. -->
+      <section aria-labelledby="foro-titulo" class="bg-slate-50 py-20 sm:py-24" id="foro">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between" data-reveal="">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                Comunidad Garzoneña
+              </p>
+              <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl" id="foro-titulo">
+                Conversemos.
+              </h2>
+              <p class="mt-3 max-w-prose leading-relaxed text-slate-600">
+                Un espacio de ejemplo para compartir preguntas generales y
+                encontrar información útil.
+              </p>
+            </div>
+            <a class="group inline-flex w-fit items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-semibold text-white transition motion-reduce:transition-none hover:bg-slate-800 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-400/40" href="#foro">
+              <i aria-hidden="true" class="h-4 w-4" data-lucide="plus"> </i>
+              Crear nuevo tema
+            </a>
+          </div>
+          <div class="mt-10 grid items-start gap-6 lg:grid-cols-[0.78fr_1.5fr]">
+            <aside aria-label="Información del foro" class="space-y-5" data-reveal="">
+              <section class="rounded-3xl border border-amber-200 bg-amber-50 p-5">
+                <div class="flex items-start gap-3">
+                  <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber/30 text-amber-950">
+                    <i aria-hidden="true" class="h-5 w-5" data-lucide="heart-handshake">
+                    </i>
+                  </span>
+                  <div>
+                    <h3 class="font-heading text-sm font-bold text-slate-950">
+                      Normas de convivencia
+                    </h3>
+                    <p class="mt-2 text-xs leading-relaxed text-slate-700">
+                      Cuida tus datos personales, trata a las demás personas con
+                      respeto y evita publicar información sensible o detalles
+                      que identifiquen a terceros.
+                    </p>
+                    <a class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber/40" href="#foro">
+                      Conocer las normas
+                      <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="arrow-right">
+                      </i>
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </aside>
+            <div class="space-y-3">
+              <article class="rounded-2xl border border-primary/20 bg-white p-4 shadow-sm sm:p-5" data-reveal="">
+                <div class="flex gap-3 sm:gap-4">
+                  <!-- ESPACIO-IMG-->
+                  <div aria-label="Mosaico ilustrado con cinco retratos de participantes y una agente policial." class="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full border-2 border-primary/30 bg-primary/5 text-primary sm:h-14 sm:w-14" data-slot="foro-avatar-1" role="img">
+                    <span class="grid place-items-center">
+                      <i class="h-4 w-4" data-lucide="image"> </i>
+                    </span>
+                    <img alt="Mosaico ilustrado con cinco retratos de participantes y una agente policial." class="absolute inset-0 h-full w-full rounded-full object-cover ring-2 ring-white opacity-0 transition-opacity duration-700" data-media-fade="" decoding="async" height="1254" loading="lazy" src="assets/img/foro-avatar-1.webp" width="1254">
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="rounded-full bg-amber/25 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-amber-950">
+                        <i aria-hidden="true" class="mr-1 inline h-3 w-3" data-lucide="pin">
+                        </i>
+                        Fijado
+                      </span>
+                      <time class="text-[11px] text-slate-500" datetime="2026-08-14">
+                        14 ago. 2026
+                      </time>
+                    </div>
+                    <h3 class="mt-2 font-heading text-base font-bold leading-snug text-slate-950 sm:text-lg">
+                      <a class="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+                        Bienvenidos: cómo usar este espacio de orientación
+                      </a>
+                    </h3>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+                      <span> por Equipo de moderación </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="message-circle">
+                        </i>
+                        14 respuestas
+                      </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="eye">
+                        </i>
+                        1.2 mil vistas
+                      </span>
+                      <span> Actualizado hace 20 min </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5" data-reveal="">
+                <div class="flex gap-3 sm:gap-4">
+                  <!-- ESPACIO-IMG: foro-avatar-2 | 1:1 | 200x200 -->
+                  <div aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14" data-slot="foro-avatar-2" role="img">
+                    <i aria-hidden="true" class="h-4 w-4" data-lucide="image">
+                    </i>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <time class="text-[11px] text-slate-500" datetime="2026-08-14">
+                        14 ago. 2026
+                      </time>
+                    </div>
+                    <h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base">
+                      <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+                        ¿Qué datos conviene guardar si recibo un mensaje
+                        sospechoso?
+                      </a>
+                    </h3>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+                      <span> por Andrea M. </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="message-circle">
+                        </i>
+                        8 respuestas
+                      </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="eye">
+                        </i>
+                        326 vistas
+                      </span>
+                      <span> Hace 12 min </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="delay-100 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5" data-reveal="">
+                <div class="flex gap-3 sm:gap-4">
+                  <!-- ESPACIO-IMG-->
+                  <div aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 bg-slate-100 text-slate-500 sm:h-14 sm:w-14" data-slot="foro-avatar-3" role="img">
+                    <i aria-hidden="true" class="h-4 w-4" data-lucide="image">
+                    </i>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <time class="text-[11px] text-slate-500" datetime="2026-08-13">
+                        13 ago. 2026
+                      </time>
+                    </div>
+                    <h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base">
+                      <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+                        ¿Cómo puedo consultar un código de seguimiento?
+                      </a>
+                    </h3>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+                      <span> por Julián R. &gt; </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="message-circle">
+                        </i>
+                        6 respuestas
+                      </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="eye">
+                        </i>
+                        214 vistas
+                      </span>
+                      <span> Hace 1 h </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="delay-200 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5" data-reveal="">
+                <div class="flex gap-3 sm:gap-4">
+                  <!-- ESPACIO-IMG: -->
+                  <div aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14" data-slot="foro-avatar-4" role="img">
+                    <i aria-hidden="true" class="h-4 w-4" data-lucide="image">
+                    </i>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <time class="text-[11px] text-slate-500" datetime="2026-08-13">
+                        13 ago. 2026
+                      </time>
+                    </div>
+                    <h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base">
+                      <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+                        Consejos para proteger mis cuentas personales
+                      </a>
+                    </h3>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+                      <span> por Camila P. </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="message-circle">
+                        </i>
+                        11 respuestas
+                      </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="eye">
+                        </i>
+                        487 vistas
+                      </span>
+                      <span> Hace 3 h </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="delay-300 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition motion-reduce:transition-none hover:border-slate-300 hover:shadow-md sm:p-5" data-reveal="">
+                <div class="flex gap-3 sm:gap-4">
+                  <!-- ESPACIO-IMG: -->
+                  <div aria-label="Avatar de muestra de una persona participante del foro" class="grid h-12 w-12 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500 sm:h-14 sm:w-14" data-slot="foro-avatar-5" role="img">
+                    <i aria-hidden="true" class="h-4 w-4" data-lucide="image">
+                    </i>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <time class="text-[11px] text-slate-500" datetime="2026-08-12">
+                        12 ago. 2026
+                      </time>
+                    </div>
+                    <h3 class="mt-2 font-heading text-sm font-bold leading-snug text-slate-950 sm:text-base">
+                      <a class="hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+                        ¿Hay una lista de documentos útiles para empezar?
+                      </a>
+                    </h3>
+                    <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
+                      <span> por Mateo G. </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="message-circle">
+                        </i>
+                        4 respuestas
+                      </span>
+                      <span class="inline-flex items-center gap-1">
+                        <i aria-hidden="true" class="h-3.5 w-3.5" data-lucide="eye">
+                        </i>
+                        179 vistas
+                      </span>
+                      <span> Hace 5 h </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <div class="pt-2 text-center">
+                <a class="group inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-primary transition motion-reduce:transition-none hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20" href="#foro">
+                  Ver más conversaciones
+                  <i aria-hidden="true" class="h-4 w-4 transition-transform motion-reduce:transition-none group-hover:translate-x-1" data-lucide="arrow-right">
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mt-10 grid gap-5 lg:grid-cols-3">
-          <article data-reveal class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-            <div class="flex items-center gap-1 text-amber-700" aria-label="Calificación de cinco estrellas"><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i></div>
-            <blockquote class="mt-5 font-heading text-base font-semibold leading-relaxed text-slate-800">“Encontré una explicación sencilla de qué información organizar antes de pedir orientación.”</blockquote>
-            <div class="mt-6 flex items-center gap-3"><!-- ESPACIO-IMG: testimonio-avatar-1 | 1:1 | 200x200 --><div data-slot="testimonio-avatar-1" role="img" aria-label="Imagen ilustrativa de una agente policial que conversa con un grupo de ciudadanos durante una charla de orientación." class="relative grid h-11 w-11 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500"><i data-lucide="image" class="h-3.5 w-3.5" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span><img data-media-fade src="assets/img/testimonio-avatar-1.webp" alt="" width="1536" height="1024" decoding="async" loading="lazy" class="absolute inset-0 h-full w-full rounded-full object-cover ring-2 ring-white opacity-0 transition-opacity duration-700"></div><div><p class="text-sm font-bold text-slate-900">Valentina Ríos</p><p class="text-xs text-slate-500">Comentario ficticio de muestra</p></div></div>
-          </article>
-          <article data-reveal class="delay-100 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-            <div class="flex items-center gap-1 text-amber-700" aria-label="Calificación de cinco estrellas"><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i></div>
-            <blockquote class="mt-5 font-heading text-base font-semibold leading-relaxed text-slate-800">“Me ayudó tener los pasos en un mismo lugar y saber dónde guardar el código de seguimiento.”</blockquote>
-            <div class="mt-6 flex items-center gap-3"><!-- ESPACIO-IMG: testimonio-avatar-2 | 1:1 | 200x200 --><div data-slot="testimonio-avatar-2" role="img" aria-label="Avatar ficticio de Samuel Peña" class="grid h-11 w-11 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500"><i data-lucide="image" class="h-3.5 w-3.5" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></div><div><p class="text-sm font-bold text-slate-900">Samuel Peña</p><p class="text-xs text-slate-500">Comentario ficticio de muestra</p></div></div>
-          </article>
-          <article data-reveal class="delay-200 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
-            <div class="flex items-center gap-1 text-amber-700" aria-label="Calificación de cinco estrellas"><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i><i data-lucide="star" class="h-4 w-4 fill-amber" aria-hidden="true"></i></div>
-            <blockquote class="mt-5 font-heading text-base font-semibold leading-relaxed text-slate-800">“La orientación sobre seguridad digital fue concreta y fácil de compartir con mi familia.”</blockquote>
-            <div class="mt-6 flex items-center gap-3"><!-- ESPACIO-IMG: testimonio-avatar-3 | 1:1 | 200x200 --><div data-slot="testimonio-avatar-3" role="img" aria-label="Avatar ficticio de Lucía Gómez" class="grid h-11 w-11 shrink-0 place-content-center justify-items-center gap-0.5 overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-100 text-slate-500"><i data-lucide="image" class="h-3.5 w-3.5" aria-hidden="true"></i><span class="text-[6px] font-semibold leading-none">200×200</span><span class="sr-only">Avatar 1:1 · 200 × 200 px</span></div><div><p class="text-sm font-bold text-slate-900">Lucía Gómez</p><p class="text-xs text-slate-500">Comentario ficticio de muestra</p></div></div>
-          </article>
+      </section>
+      <!-- Emergencia: único uso del color danger, con llamada clara a buscar ayuda inmediata. -->
+      <section aria-labelledby="emergencia-titulo" class="bg-white py-12 sm:py-16" id="emergencia">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="relative overflow-hidden rounded-[2rem] bg-danger p-6 text-slate-950 shadow-xl shadow-danger/20 sm:p-9 lg:p-10" data-reveal="">
+            <div aria-hidden="true" class="pointer-events-none absolute -right-8 -top-20 h-64 w-64 rounded-full border-[32px] border-white/10"></div>
+            <div class="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div class="flex items-start gap-4 sm:gap-5">
+                <span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/25 text-slate-950 motion-reduce:animate-none animate-pulse">
+                  <i aria-hidden="true" class="h-7 w-7" data-lucide="siren">
+                  </i>
+                </span>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-900/75">
+                    Atención inmediata
+                  </p>
+                  <h2 class="mt-1 font-heading text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl" id="emergencia-titulo">
+                    Si estás en peligro, no uses este formulario: llama ahora.
+                  </h2>
+                  <p class="mt-2 max-w-2xl text-sm leading-relaxed text-slate-900/80">
+                    Busca un lugar seguro y comunícate con el servicio de
+                    emergencias de tu zona. Reemplaza el marcador por el número
+                    oficial antes de publicar.
+                  </p>
+                </div>
+              </div>
+              <a aria-label="Número de emergencia pendiente de completar" class="inline-flex min-h-14 shrink-0 items-center justify-center gap-3 rounded-2xl bg-slate-950 px-6 py-4 font-heading text-lg font-extrabold text-white shadow-lg transition motion-reduce:transition-none hover:-translate-y-0.5 hover:bg-slate-800 active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/60" href="#emergencia">
+                <i aria-hidden="true" class="h-5 w-5" data-lucide="phone"> </i>
+                911
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Preguntas frecuentes: acordeón operable con teclado y atributos accesibles. -->
-    <section id="preguntas" aria-labelledby="preguntas-titulo" class="bg-white py-20 sm:py-24">
-      <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16 lg:px-10">
-        <div data-reveal class="lg:sticky lg:top-28 lg:self-start">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Resolvemos tus dudas</p>
-          <h2 id="preguntas-titulo" class="mt-3 font-heading text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Preguntas frecuentes</h2>
-          <p class="mt-4 max-w-prose leading-relaxed text-slate-600">Consulta respuestas generales sobre el proceso y los cuidados básicos de tu información.</p>
-          <div class="mt-7 rounded-2xl bg-slate-50 p-5"><p class="text-sm font-semibold text-slate-900">¿Necesitas ayuda adicional?</p><p class="mt-1 text-sm leading-relaxed text-slate-600">Revisa los canales oficiales de [NOMBRE DE LA INSTITUCIÓN].</p><a href="#contacto" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20">Ver contacto <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></a></div>
-        </div>
-        <div data-reveal class="divide-y divide-slate-200 border-y border-slate-200">
-          <article class="py-1">
-            <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="respuesta-1" class="flex w-full items-center justify-between gap-5 py-5 text-left font-heading text-base font-bold text-slate-900 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 sm:text-lg"><span>¿La denuncia se realiza directamente desde esta página?</span><i data-lucide="chevron-down" data-faq-icon class="h-5 w-5 shrink-0 text-slate-500 transition-transform motion-reduce:transition-none duration-300" aria-hidden="true"></i></button></h3>
-            <div id="respuesta-1" data-faq-panel aria-hidden="true" class="max-h-0 overflow-hidden opacity-0 transition-all motion-reduce:transition-none duration-300"><p class="max-w-prose pb-5 pr-8 text-sm leading-relaxed text-slate-600">No. Esta página es una maqueta visual de frontend y no recibe ni envía denuncias. En una publicación oficial, este espacio debe conectarse con los canales autorizados de la institución.</p></div>
-          </article>
-          <article class="py-1">
-            <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="respuesta-2" class="flex w-full items-center justify-between gap-5 py-5 text-left font-heading text-base font-bold text-slate-900 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 sm:text-lg"><span>¿Qué debo hacer si estoy en peligro ahora mismo?</span><i data-lucide="chevron-down" data-faq-icon class="h-5 w-5 shrink-0 text-slate-500 transition-transform motion-reduce:transition-none duration-300" aria-hidden="true"></i></button></h3>
-            <div id="respuesta-2" data-faq-panel aria-hidden="true" class="max-h-0 overflow-hidden opacity-0 transition-all motion-reduce:transition-none duration-300"><p class="max-w-prose pb-5 pr-8 text-sm leading-relaxed text-slate-600">Aléjate del riesgo si puedes hacerlo con seguridad y llama al servicio de emergencias local. No uses un formulario virtual para pedir ayuda urgente. Completa el marcador [NÚMERO] con el número oficial de tu zona.</p></div>
-          </article>
-          <article class="py-1">
-            <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="respuesta-3" class="flex w-full items-center justify-between gap-5 py-5 text-left font-heading text-base font-bold text-slate-900 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 sm:text-lg"><span>¿Cómo consulto el estado de un reporte?</span><i data-lucide="chevron-down" data-faq-icon class="h-5 w-5 shrink-0 text-slate-500 transition-transform motion-reduce:transition-none duration-300" aria-hidden="true"></i></button></h3>
-            <div id="respuesta-3" data-faq-panel aria-hidden="true" class="max-h-0 overflow-hidden opacity-0 transition-all motion-reduce:transition-none duration-300"><p class="max-w-prose pb-5 pr-8 text-sm leading-relaxed text-slate-600">En los canales oficiales, utiliza el código de seguimiento que se entrega al finalizar el registro. Guárdalo en un lugar privado. El campo de esta maqueta no consulta datos reales.</p></div>
-          </article>
-          <article class="py-1">
-            <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="respuesta-4" class="flex w-full items-center justify-between gap-5 py-5 text-left font-heading text-base font-bold text-slate-900 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 sm:text-lg"><span>¿Debo adjuntar evidencia para hacer un reporte?</span><i data-lucide="chevron-down" data-faq-icon class="h-5 w-5 shrink-0 text-slate-500 transition-transform motion-reduce:transition-none duration-300" aria-hidden="true"></i></button></h3>
-            <div id="respuesta-4" data-faq-panel aria-hidden="true" class="max-h-0 overflow-hidden opacity-0 transition-all motion-reduce:transition-none duration-300"><p class="max-w-prose pb-5 pr-8 text-sm leading-relaxed text-slate-600">Si cuentas con archivos o documentos relacionados, pueden ayudar a contextualizar el hecho. Revisa en el canal oficial qué formatos se aceptan y evita alterar los archivos originales.</p></div>
-          </article>
-          <article class="py-1">
-            <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="respuesta-5" class="flex w-full items-center justify-between gap-5 py-5 text-left font-heading text-base font-bold text-slate-900 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 sm:text-lg"><span>¿Puedo hacer una denuncia de forma anónima?</span><i data-lucide="chevron-down" data-faq-icon class="h-5 w-5 shrink-0 text-slate-500 transition-transform motion-reduce:transition-none duration-300" aria-hidden="true"></i></button></h3>
-            <div id="respuesta-5" data-faq-panel aria-hidden="true" class="max-h-0 overflow-hidden opacity-0 transition-all motion-reduce:transition-none duration-300"><p class="max-w-prose pb-5 pr-8 text-sm leading-relaxed text-slate-600">La posibilidad y las condiciones dependen del tipo de hecho y de las reglas vigentes. Confirma esta información con la entidad responsable antes de compartir tus datos.</p></div>
-          </article>
-          <article class="py-1">
-            <h3><button type="button" data-faq-trigger aria-expanded="false" aria-controls="respuesta-6" class="flex w-full items-center justify-between gap-5 py-5 text-left font-heading text-base font-bold text-slate-900 transition motion-reduce:transition-none hover:text-primary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/20 sm:text-lg"><span>¿Qué pasa con la información que comparto?</span><i data-lucide="chevron-down" data-faq-icon class="h-5 w-5 shrink-0 text-slate-500 transition-transform motion-reduce:transition-none duration-300" aria-hidden="true"></i></button></h3>
-            <div id="respuesta-6" data-faq-panel aria-hidden="true" class="max-h-0 overflow-hidden opacity-0 transition-all motion-reduce:transition-none duration-300"><p class="max-w-prose pb-5 pr-8 text-sm leading-relaxed text-slate-600">Antes de usar un canal real, lee su aviso de privacidad para conocer quién administra los datos, con qué finalidad y cómo ejercer tus derechos. Esta maqueta no almacena información.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Llamada final: cierre de alto contraste con acceso a las categorías. -->
-    <section aria-labelledby="cta-titulo" class="px-5 pb-20 sm:px-8 sm:pb-24 lg:px-10">
-      <div data-reveal class="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-r from-primary via-violet to-primary px-6 py-12 text-center text-white shadow-2xl shadow-primary/20 sm:px-12 sm:py-16 lg:py-20">
-        <div class="pointer-events-none absolute -left-24 -top-32 h-80 w-80 rounded-full border-[40px] border-white/10" aria-hidden="true"></div><div class="pointer-events-none absolute -bottom-40 -right-20 h-96 w-96 rounded-full bg-cyan/20 blur-3xl" aria-hidden="true"></div>
-        <div class="relative mx-auto max-w-3xl"><span class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white/15 text-white"><i data-lucide="shield-check" class="h-7 w-7" aria-hidden="true"></i></span><h2 id="cta-titulo" class="mt-6 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">Dar el primer paso puede ser más sencillo.</h2><p class="mx-auto mt-4 max-w-prose leading-relaxed text-white/90">Encuentra la orientación que necesitas y prepara la información con calma.</p><a href="#tipos" class="group mt-8 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-bold text-primary shadow-lg transition motion-reduce:transition-none hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/50">Iniciar denuncia <i data-lucide="arrow-right" class="h-5 w-5 transition-transform motion-reduce:transition-none group-hover:translate-x-1" aria-hidden="true"></i></a></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Pie de página con enlaces, datos editables y canales sociales. -->
-  <footer id="contacto" class="bg-slate-950 text-slate-300">
-    <div class="mx-auto max-w-7xl px-5 pb-8 pt-14 sm:px-8 lg:px-10 lg:pt-16">
-      <div class="grid gap-10 border-b border-white/10 pb-10 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.9fr_1.1fr] lg:gap-8">
-        <div class="max-w-sm">
-          <a href="#inicio" class="inline-flex items-center gap-3 rounded-xl text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40" aria-label="Denuncias Virtuales, volver al inicio"><span class="grid h-11 w-11 place-items-center rounded-2xl bg-primary text-white"><i data-lucide="shield-check" class="h-6 w-6" aria-hidden="true"></i></span><span class="font-heading text-lg font-extrabold tracking-tight">Denuncias Virtuales</span></a>
-          <p class="mt-5 text-sm leading-relaxed text-slate-400">Un espacio de orientación ciudadana para acercar información clara sobre los canales de denuncia y atención.</p>
-          <div class="mt-5 flex items-center gap-2"><a href="#contacto" aria-label="Red social institucional: Facebook" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition motion-reduce:transition-none hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"><i data-lucide="facebook" class="h-4 w-4" aria-hidden="true"></i></a><a href="#contacto" aria-label="Red social institucional: Instagram" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition motion-reduce:transition-none hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"><i data-lucide="instagram" class="h-4 w-4" aria-hidden="true"></i></a><a href="#contacto" aria-label="Red social institucional: YouTube" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition motion-reduce:transition-none hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"><i data-lucide="youtube" class="h-4 w-4" aria-hidden="true"></i></a><a href="#contacto" aria-label="Red social institucional: X" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition motion-reduce:transition-none hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"><i data-lucide="at-sign" class="h-4 w-4" aria-hidden="true"></i></a></div>
-        </div>
-        <div><h2 class="font-heading text-sm font-bold text-white">Plataforma</h2><ul class="mt-4 space-y-3 text-sm"><li><a href="#como-funciona" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Cómo funciona</a></li><li><a href="#tipos" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Tipos de denuncia</a></li><li><a href="#consulta" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Consultar estado</a></li><li><a href="#foro" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Foro ciudadano</a></li></ul></div>
-        <div><h2 class="font-heading text-sm font-bold text-white">Recursos</h2><ul class="mt-4 space-y-3 text-sm"><li><a href="#noticias" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Noticias y guías</a></li><li><a href="#multimedia-titulo" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Video institucional</a></li><li><a href="#preguntas" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Preguntas frecuentes</a></li><li><a href="#emergencia" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Emergencias</a></li></ul></div>
-        <div><h2 class="font-heading text-sm font-bold text-white">Legal</h2><ul class="mt-4 space-y-3 text-sm"><li><a href="#contacto" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Aviso de privacidad</a></li><li><a href="#contacto" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Tratamiento de datos</a></li><li><a href="#contacto" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Términos de uso</a></li><li><a href="#contacto" class="transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Accesibilidad</a></li></ul></div>
-        <div><h2 class="font-heading text-sm font-bold text-white">Contacto institucional</h2><ul class="mt-4 space-y-3 text-sm leading-relaxed"><li class="flex gap-3"><i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true"></i><span>[DIRECCIÓN]</span></li><li class="flex gap-3"><i data-lucide="phone" class="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true"></i><span>[TELÉFONO]</span></li><li class="flex gap-3"><i data-lucide="mail" class="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true"></i><span>[CORREO]</span></li><li class="flex gap-3"><i data-lucide="clock-3" class="mt-0.5 h-4 w-4 shrink-0 text-cyan" aria-hidden="true"></i><span>Canal virtual: disponible 24 horas</span></li></ul><p class="mt-4 text-xs text-slate-500">Institución: [NOMBRE DE LA INSTITUCIÓN]</p></div>
-      </div>
-      <div class="flex flex-col gap-3 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 Denuncias Virtuales. Todos los derechos reservados.</p><p>Maqueta demostrativa · Reemplaza los marcadores antes de publicar.</p><a href="#top" class="w-fit text-slate-300 transition motion-reduce:transition-none hover:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/40">Volver al inicio</a></div>
-    </div>
-  </footer>
-
-  <!-- Botón flotante para volver al inicio cuando el usuario baja por la página. -->
-  <a href="#top" data-back-top aria-label="Volver arriba" class="pointer-events-none fixed bottom-5 right-5 z-40 grid h-12 w-12 translate-y-3 place-items-center rounded-2xl bg-slate-950 text-white opacity-0 shadow-xl shadow-slate-950/20 transition-all motion-reduce:transition-none duration-300 hover:-translate-y-1 hover:bg-primary active:scale-95 focus-visible:pointer-events-auto focus-visible:translate-y-0 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/30 sm:bottom-8 sm:right-8"><i data-lucide="arrow-up" class="h-5 w-5" aria-hidden="true"></i></a>
-
-  <!-- Interacciones permitidas: iconos, aparición al hacer scroll, menú, navbar, FAQ, contadores y volver arriba. -->
-  <script>
-    // Inicializa todos los iconos Lucide presentes en el documento.
-    lucide.createIcons();
-
-    // Revela las imágenes al terminar de cargar y conserva el marcador si falla el archivo.
-    document.querySelectorAll('[data-media-fade]').forEach((image) => {
-      const revealImage = () => {
-        image.classList.remove('opacity-0');
-        image.classList.add('opacity-100');
-      };
-      const hideBrokenImage = () => image.classList.add('hidden');
-      image.addEventListener('load', revealImage, { once: true });
-      image.addEventListener('error', hideBrokenImage, { once: true });
-      if (image.complete) {
-        if (image.naturalWidth > 0) revealImage();
-        else hideBrokenImage();
-      }
-    });
-
-    // Consulta noticias colombianas al servidor, que conserva la clave fuera del navegador.
-    const newsStatus = document.querySelector('[data-news-status]');
-    const newsGrid = document.querySelector('[data-news-grid]');
-    const newsCards = Array.from(document.querySelectorAll('[data-news-card]'));
-    const formatNewsDate = (value) => {
-      if (!value) return null;
-      const date = new Date(value);
-      if (Number.isNaN(date.getTime())) return null;
-      return new Intl.DateTimeFormat('es-CO', { dateStyle: 'medium' }).format(date);
-    };
-
-    const loadColombianNews = async () => {
-      try {
-        if (window.location.protocol === 'file:') {
-          throw new Error('Para consultar noticias, inicia el servidor con npm start y abre http://localhost:4173.');
-        }
-        newsStatus.textContent = 'Cargando noticias de toda Colombia…';
-        const response = await fetch('/api/noticias', { headers: { Accept: 'application/json' } });
-        const payload = await response.json();
-        if (!response.ok) {
-          if (payload.setupRequired) {
-            throw new Error('Para activar las noticias, agrega tu clave gratuita de APITube al archivo .env y vuelve a iniciar el servidor.');
-          }
-          throw new Error(payload.error || 'No fue posible consultar la fuente de noticias.');
-        }
-
-        const articles = Array.isArray(payload.articles) ? payload.articles.slice(0, newsCards.length) : [];
-        if (articles.length === 0) {
-          newsStatus.textContent = 'No se encontraron noticias recientes de Colombia. Vuelve a consultar más tarde.';
-          return;
-        }
-
-        newsCards.forEach((card, index) => {
-          const article = articles[index];
-          card.hidden = !article;
-          if (!article) return;
-          if (index === 3) card.classList.add('sm:grid', 'sm:grid-cols-[0.85fr_1.15fr]');
-
-          const title = article.title || 'Noticia de Colombia';
-          const link = card.querySelector('[data-news-link]');
-          const articleUrl = new URL(article.url);
-          if (articleUrl.protocol !== 'https:') return;
-
-          card.querySelector('[data-news-title]').textContent = title;
-          card.querySelector('[data-news-description]').textContent = article.description || 'Consulta el artículo original para conocer todos los detalles.';
-          card.querySelector('[data-news-category]').textContent = article.category || 'Actualidad nacional';
-          card.querySelector('[data-news-source]').textContent = article.source || articleUrl.hostname;
-          link.href = articleUrl.href;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.setAttribute('aria-label', `Leer noticia en ${article.source || articleUrl.hostname}: ${title}`);
-
-          const dateElement = card.querySelector('[data-news-date]');
-          const formattedDate = formatNewsDate(article.publishedAt);
-          if (formattedDate) {
-            dateElement.dateTime = new Date(article.publishedAt).toISOString();
-            dateElement.textContent = formattedDate;
-          } else {
-            dateElement.remove();
-          }
-
-          const imageUrl = article.image ? new URL(article.image) : null;
-          const imageElement = card.querySelector('[data-news-image]');
-          const imagePlaceholder = card.querySelector('[data-news-placeholder]');
-          const imageFrame = card.querySelector('[data-slot]');
-          if (imageUrl && imageUrl.protocol === 'https:') {
-            imageElement.alt = `Imagen asociada a la noticia: ${title}`;
-            imageElement.classList.remove('hidden', 'opacity-100');
-            imageElement.classList.add('opacity-0');
-            imageElement.addEventListener('load', () => {
-              imageElement.width = imageElement.naturalWidth;
-              imageElement.height = imageElement.naturalHeight;
-              imageElement.classList.remove('opacity-0');
-              imageElement.classList.add('opacity-100');
-              imagePlaceholder.classList.add('hidden');
-            }, { once: true });
-            imageElement.addEventListener('error', () => imageElement.classList.add('hidden'), { once: true });
-            imageElement.src = imageUrl.href;
-            if (imageElement.complete) {
-              if (imageElement.naturalWidth > 0) {
-                imageElement.width = imageElement.naturalWidth;
-                imageElement.height = imageElement.naturalHeight;
-                imageElement.classList.remove('opacity-0');
-                imageElement.classList.add('opacity-100');
-                imagePlaceholder.classList.add('hidden');
-              } else {
-                imageElement.classList.add('hidden');
-              }
-            }
-            imageFrame.setAttribute('aria-label', `Imagen asociada a la noticia: ${title}`);
-          }
-        });
-
-        newsGrid.classList.add('grid');
-        newsGrid.hidden = false;
-        newsStatus.hidden = true;
-      } catch (error) {
-        newsStatus.textContent = error.message || 'No fue posible cargar las noticias. Intenta nuevamente más tarde.';
-      }
-    };
-    loadColombianNews();
-
-    // Muestra cada bloque al entrar en el área visible del navegador.
-    const revealItems = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.remove('opacity-0', 'translate-y-6');
-        entry.target.classList.add('opacity-100', 'translate-y-0');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12 });
-    revealItems.forEach((item) => {
-      item.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700', 'ease-out', 'motion-reduce:opacity-100', 'motion-reduce:translate-y-0', 'motion-reduce:transition-none');
-      revealObserver.observe(item);
-    });
-
-    // Alterna el menú móvil y mantiene sincronizados sus atributos accesibles.
-    const menuToggle = document.querySelector('[data-menu-toggle]');
-    const mobileMenu = document.querySelector('[data-mobile-menu]');
-    const menuOpenIcon = document.querySelector('[data-menu-open-icon]');
-    const menuCloseIcon = document.querySelector('[data-menu-close-icon]');
-    const closeMobileMenu = () => {
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      mobileMenu.classList.add('max-h-0', 'opacity-0', 'pointer-events-none', 'border-transparent');
-      mobileMenu.classList.remove('max-h-[32rem]', 'opacity-100', 'pointer-events-auto', 'border-slate-200');
-      menuOpenIcon.classList.remove('hidden');
-      menuCloseIcon.classList.add('hidden');
-    };
-    menuToggle.addEventListener('click', () => {
-      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-      if (isOpen) {
-        closeMobileMenu();
-        return;
-      }
-      menuToggle.setAttribute('aria-expanded', 'true');
-      menuToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
-      mobileMenu.setAttribute('aria-hidden', 'false');
-      mobileMenu.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none', 'border-transparent');
-      mobileMenu.classList.add('max-h-[32rem]', 'opacity-100', 'pointer-events-auto', 'border-slate-200');
-      menuOpenIcon.classList.add('hidden');
-      menuCloseIcon.classList.remove('hidden');
-    });
-    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
-
-    // Refuerza el fondo y la sombra de la barra al desplazarse por la página.
-    const navbar = document.querySelector('[data-navbar]');
-    const updateNavbar = () => {
-      const scrolled = window.scrollY > 12;
-      navbar.classList.toggle('bg-white/95', scrolled);
-      navbar.classList.toggle('shadow-lg', scrolled);
-      navbar.classList.toggle('border-slate-200/80', scrolled);
-      navbar.classList.toggle('bg-white/75', !scrolled);
-      navbar.classList.toggle('border-transparent', !scrolled);
-    };
-    window.addEventListener('scroll', updateNavbar, { passive: true });
-    updateNavbar();
-
-    // Abre y cierra las respuestas del acordeón de preguntas frecuentes.
-    document.querySelectorAll('[data-faq-trigger]').forEach((trigger) => {
-      trigger.addEventListener('click', () => {
-        const expanded = trigger.getAttribute('aria-expanded') === 'true';
-        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
-        const icon = trigger.querySelector('[data-faq-icon]');
-        trigger.setAttribute('aria-expanded', String(!expanded));
-        panel.setAttribute('aria-hidden', String(expanded));
-        panel.classList.toggle('max-h-0', expanded);
-        panel.classList.toggle('opacity-0', expanded);
-        panel.classList.toggle('max-h-48', !expanded);
-        panel.classList.toggle('opacity-100', !expanded);
-        icon.classList.toggle('rotate-180', !expanded);
-      });
-    });
-
-    // Anima las cifras ilustrativas una sola vez al entrar en pantalla.
-    const numberFormatter = new Intl.NumberFormat('es-CO');
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const counter = entry.target;
-        const target = Number(counter.dataset.target);
-        const decimals = Number(counter.dataset.decimals || 0);
-        const suffix = counter.dataset.suffix || '';
-        const startedAt = performance.now();
-        const duration = 1300;
-        const renderCount = (now) => {
-          const progress = Math.min((now - startedAt) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const value = target * eased;
-          const formatted = decimals
-            ? value.toLocaleString('es-CO', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
-            : numberFormatter.format(Math.floor(value));
-          counter.textContent = `${formatted}${suffix}`;
-          if (progress < 1) window.requestAnimationFrame(renderCount);
+      </section>
+    </main>
+    <script>
+      // Muestra las imágenes cuando terminan de cargar y oculta las que fallan.
+      document.querySelectorAll('[data-media-fade]').forEach((image) => {
+        const showImage = () => {
+          image.classList.remove('opacity-0');
+          image.classList.add('opacity-100');
         };
-        window.requestAnimationFrame(renderCount);
-        observer.unobserve(counter);
+        const hideImage = () => image.classList.add('hidden');
+
+        image.addEventListener('load', showImage, { once: true });
+        image.addEventListener('error', hideImage, { once: true });
+
+        if (image.complete) {
+          if (image.naturalWidth > 0) showImage();
+          else hideImage();
+        }
       });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-counter]').forEach((counter) => counterObserver.observe(counter));
 
-    // Muestra el acceso flotante para volver arriba después de recorrer la página.
-    const backTop = document.querySelector('[data-back-top]');
-    const updateBackTop = () => {
-      const visible = window.scrollY > 600;
-      backTop.classList.toggle('translate-y-0', visible);
-      backTop.classList.toggle('opacity-100', visible);
-      backTop.classList.toggle('pointer-events-auto', visible);
-      backTop.classList.toggle('translate-y-3', !visible);
-      backTop.classList.toggle('opacity-0', !visible);
-      backTop.classList.toggle('pointer-events-none', !visible);
-    };
-    window.addEventListener('scroll', updateBackTop, { passive: true });
-    updateBackTop();
-  </script>
-</body>
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    </script>
+  </body>
 </html>
-
-<!--
-LISTADO COMPLETO DE ESPACIOS MULTIMEDIA (slot, ubicación, proporción y tamaño recomendado):
-1. hero-principal — Hero principal — 4:3 — 1200x900 px (imagen insertada).
-2. tutorial-institucional — Video tutorial institucional — 16:9 — 1280x720 px (sin archivo de video disponible).
-3. noticia-destacada — Noticia destacada — 16:9 recomendado — 1280x720 px (imagen de la API si la fuente la proporciona; de lo contrario, aparece el marcador).
-4. noticia-1 — Tarjeta de noticia de Colombia — 3:2 recomendado — 900x600 px (imagen de la API si la fuente la proporciona; de lo contrario, aparece el marcador).
-5. noticia-2 — Tarjeta de noticia de Colombia — 3:2 — 900x600 px (imagen de la API si la fuente la proporciona; de lo contrario, aparece el marcador).
-6. noticia-3 — Tarjeta de noticia de Colombia — 3:2 — 900x600 px (imagen de la API si la fuente la proporciona; de lo contrario, aparece el marcador).
-7. foro-avatar-1 — Avatar del hilo fijado — 1:1 — 200x200 px (imagen insertada).
-8. foro-avatar-2 — Avatar del hilo sobre mensajes sospechosos — 1:1 — 200x200 px.
-9. foro-avatar-3 — Avatar del hilo sobre código de seguimiento — 1:1 — 200x200 px.
-10. foro-avatar-4 — Avatar del hilo sobre protección de cuentas — 1:1 — 200x200 px.
-11. foro-avatar-5 — Avatar del hilo sobre documentos útiles — 1:1 — 200x200 px.
-12. testimonio-avatar-1 — Avatar del testimonio de Valentina Ríos — 1:1 — 200x200 px (imagen insertada).
-13. testimonio-avatar-2 — Avatar del testimonio de Samuel Peña — 1:1 — 200x200 px.
-14. testimonio-avatar-3 — Avatar del testimonio de Lucía Gómez — 1:1 — 200x200 px.
-15. og-image — Metadato Open Graph — 1200x630 px (se espera assets/img/og-image.jpg).
-16. favicon — Marcador [FAVICON] pendiente de reemplazo.
--->
